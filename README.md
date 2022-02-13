@@ -5,5 +5,5 @@ Grupo:
 Felipe Tessarollo Ramos,
 Felipe Alan,
 Stenio,
-Ivan,
+Ivan Ramalho Tonial,
 Daivid,
