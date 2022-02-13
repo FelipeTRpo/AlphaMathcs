@@ -70,7 +70,7 @@ input, select{
 button{
     width:min-content;
 }
-canvas{
+.painel{
     background-color: #555;
     height: 600px;
     width: 85%;
