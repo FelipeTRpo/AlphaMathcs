@@ -1,0 +1,52 @@
+[{
+    "name": "alpha",
+    "description": "sou muito bom",
+    "score": 100,
+    "level": 10
+},{
+    "name": "sonic",
+    "description": "",
+    "score": 20,
+    "level": 1
+},{
+    "name": "mario",
+    "description": "",
+    "score": 15,
+    "level": 1
+},{
+    "name": "bomberman",
+    "description": "",
+    "score": 10,
+    "level": 1
+},{
+    "name": "ash",
+    "description": "",
+    "score": 9,
+    "level": 1
+},{
+    "name": "alex kid",
+    "description": "",
+    "score": 8,
+    "level": 1
+},{
+    "name": "pacman",
+    "description": "",
+    "score": 7,
+    "level": 1
+},{
+    "name": "pitfall",
+    "description": "",
+    "score": 6,
+    "level": 1
+},{
+    "name": "link",
+    "description": "",
+    "score": 5,
+    "level": 1
+},{
+    "name": "kong",
+    "description": "",
+    "score": 4,
+    "level": 1
+}
+]
