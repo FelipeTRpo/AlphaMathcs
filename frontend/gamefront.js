@@ -5,6 +5,9 @@ const port = 8080;
 
 app.use(express.static('./src/'));
 
-app.listen(port, () =>{
-    console.log('listening http://localhost:'+ port);
+require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+    app.listen(port, () =>{
+        console.log(`para jogar acesse: http://${add}:${port}`);
+    });
+    return true;
 });
