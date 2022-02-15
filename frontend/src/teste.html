@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <body>
+        <input id="inname" type="text" class="imputname" placeholder="Seu Nome"/><br/>
+        <input id="indesc" type="text" class="imputdescription" placeholder="Sua frase de efeito"/><br/>
+        <input id="inscore" type="number" class="imputscore" placeholder="pontos"/><br/>
+        <input id="inlevel" type="number" class="imputlevel" placeholder="nivel"/><br/>
+        <button id="bregister">Register</button><br/><br/>
+        <button id="bscores">Scores</button><br/><br/>
+        <input id="statusname" type="text" class="imputname" placeholder="Seu Nome"/><br/>
+        <button id="bstatus">Status</button><br/><br/>
+        <textarea id="senders" placeholder="Requicição"></textarea>
+        <textarea id="recebers" placeholder="Retorno da requicição"></textarea>
+    </body>
+    <script type="text/javascript">
+const url = 'http://localhost:3000/';
+let bregister = document.getElementById("bregister");
+let bscores = document.getElementById("bscores");
+let bstatus = document.getElementById("bstatus");
+let senders = document.getElementById("senders");
+let recebers = document.getElementById("recebers");
+let statusname = document.getElementById("statusname");
+
+function sendregister(){
+    const user = {
+        "name": document.getElementById("inname").value,
+        "description": document.getElementById("indesc").value,
+        "score": document.getElementById("inscore").value,
+        "level": document.getElementById("inlevel").value
+    }
+    const fullurl = url + 'register';
+    senders.innerHTML = fullurl;
+    senders.append(user);
+    fetch(fullurl,{
+        method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(user)
+    }).then(
+        function(response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' + response.status);
+            return;
+        }
+        response.json().then(function(data) {
+            recebers.innerHTML = data;
+            console.log(data);
+            console.log('dados recebidos');
+        });
+        }
+    ).catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    }); 
+}
+
+function sendscores(){
+    const fullurl = url + 'scores';
+    senders.innerHTML = fullurl;
+    fetch(fullurl).then(
+        function(response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' + response.status);
+            return;
+        }
+        response.json().then(function(data) {
+            recebers.innerHTML = data;
+            console.log(data);
+            console.log('dados recebidos');
+        });
+        }
+    ).catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    });  
+}
+
+function sendstatus(){
+    const fullurl = url + 'status?name=' +statusname.value;
+    senders.innerHTML = fullurl;
+    fetch(fullurl).then(
+        function(response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' + response.status);
+            return;
+        }
+        response.json().then(function(data) {
+            recebers.innerHTML = data;
+            console.log(data);
+            console.log('dados recebidos');
+        });
+        }
+    ).catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    });  
+}
+/*{
+    "name": "alpha",
+    "description": "sou muito bom",
+    "score": 100,
+    "level": 10
+}
+{  "name":"alpha",
+    "score": 100 }*/
+bregister.addEventListener('click',sendregister);
+bscores.addEventListener('click',sendscores);
+bstatus.addEventListener('click',sendstatus);
+    </script>
+</html>

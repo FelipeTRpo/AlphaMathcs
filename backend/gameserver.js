@@ -4,8 +4,10 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 const modGame = require('./componentes/modgame.js');
-const dbplayes = require('./data/playes.json');
-const dbscores = require('./data/scores.json');
+const jsonplayes = './data/players.json';
+const jsonscores = './data/scores.json';
+const dbplayes = require(jsonplayes);
+const dbscores = require(jsonscores);
 app.use(express.json());
 app.use(cors());
 
@@ -14,7 +16,9 @@ app.post("/register", (req, res) => {
     console.log("teste register");
     console.log(req.body);
     if (modGame.validDate(req.body)){
-        res.send(modGame.register(req.body,dbplayes,dbscores));
+        res.send(modGame.includes(req.body,dbplayes,dbscores));
+        fs.writeFile(jsonplayes, JSON.stringify(dbplayes), 'utf8', err=>{if(err)console.log(err)});
+        fs.writeFile(jsonscores, JSON.stringify(dbscores), 'utf8', err=>{if(err)console.log(err)});
         return true;
     }
     res.send("error");

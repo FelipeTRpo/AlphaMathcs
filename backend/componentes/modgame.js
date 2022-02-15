@@ -4,34 +4,35 @@ const NUMBERRANKING = 10;//numero de usuarios no ranking
 function validDate(data){
     if ((typeof data.name == 'string') &&
     (typeof data.description == 'string') &&
-    (typeof data.score == 'number') &&
-    (typeof data.level == 'number')){
+    (typeof data.score == 'string') &&
+    (typeof data.level == 'string')){
         return true;
     }
     return false;
 }
 //inclue dados do usuario no cadastro
 function includes(data,playes,scores){
+    data.level = parseInt(data.level);
+    data.score = parseInt(data.score);
     let index;
-    let resp = false;
     //verifica se o usuario já está cadastrado
-    index = playes.findIndex(function(){
-        this.name == data.name;
+    index = playes.findIndex(function(item){
+        return item.name == data.name;
     });
     //atualiza os dados caso o usuario já esteja no cadastro
     if (index>=0){
         playes[index].description = data.description;
-        if (playes.score > playes[index].score)
-            playes[index].score = playes.score;
-        if (playes.level > playes[index].level)
-            playes[index].level = playes.level;
+        if (data.score > playes[index].score)
+            playes[index].score = data.score;
+        if (data.level > playes[index].level)
+            playes[index].level = data.level;
     }else{
         //adciona usuario caso não esteja cadastrado
         playes.push(data);
     }
     //verifica se o usuario já está no ranking
-    index = scores.findIndex(function(){
-        this.name == data.name;
+    index = scores.findIndex(function(item){
+        return item.name == data.name;
     });
     //atualiza os dados caso o usuario já esteja no ranking
     if (index>=0){
@@ -41,19 +42,19 @@ function includes(data,playes,scores){
         //caso o usuario não esteja no ranking, verifica se superou o ultimo do ranking
         if(data.score > scores[NUMBERRANKING-1].score){
             scores.push({"name": data.name, "score": data.score});
-            scores.sort((a,b) = a-b);
+            scores.sort();
             scores.pop();
-            resp = true;
+            console.log(data);
         }
     }
-    return resp;
+    return true;
 }
 //verifica os dados do usuario
 function status(name, playres){
     let index;
     //verifica se o usuario já está cadastrado
-    index = playes.findIndex(function(){
-        this.name == name;
+    index = playres.findIndex(function(item){
+        return item.name == name;
     });
     //retorna os dados do usuario caso esteja no cadastro
     if (index>=0){
