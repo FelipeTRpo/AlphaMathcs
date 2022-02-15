@@ -8,28 +8,35 @@ function sortOP(level, sublevel=0){
     let temp2 = 0;
     let tempop = 0;
     let min = 0;
-    let max = 10000;
+    let max = 9999;
     //sub-funções que sorteiam os termos de cada tipo de operação
+    //termos da soma
     function sum(max, min){
         const temp1 = Math.floor(Math.random()*(max-min))+(min);
+        max -= temp1;//a soma dos termos não pode ser maior que o limite
         const temp2 = Math.floor(Math.random()*(max-min))+(min);
         return [temp1, temp2];
     }
+    //termos da subtração
     function subtraction(max, min){
         const temp1 = Math.floor(Math.random()*(max-min))+(min);
-        max = temp1;
+        max = temp1;//o segundo termo não pode ser maior que o primeiro
         const temp2 = Math.floor(Math.random()*(max-min))+(min);
         return [temp1, temp2];
     }
+    //termos da multiplicação
     function multiply(max, min){
         if (max > 10) max = max/10;//a multiplicação usa termos mais baixos que a soma
+        if (min == 0) min = 1;//na multiplicação nenhum termo pode ser zero
         const temp1 = Math.floor(Math.random()*(max-min))+(min);
         const temp2 = Math.floor(Math.random()*(max-min))+(min);
         return [temp1, temp2];
     }
+    //termos da divisão
     function division(max,min){
-        let maxdiv = 20;
-        if (max < 200) maxdiv = 10;
+        let maxdiv = 20;//o divisor não pode ser maior que 20
+        if (max < 200) maxdiv = 10;//para numeros baixos não pode ser maior que 10
+        min = 1;//não pode ter divisão por zero
         const temp2 = Math.floor(Math.random()*(maxdiv-min))+(min);
         const temp1 = temp2 * (Math.floor(Math.random()*(maxdiv-min))+(min));
         return [temp1, temp2];
@@ -37,14 +44,21 @@ function sortOP(level, sublevel=0){
     //verifca o nivel do jogador e escolhe a operação de acordo
     switch (level) {
         case 0://somente um numero - sublevel condiz com numero de digitos dos numeros
-            min = Math.pow(10,sublevel);
-            max = Math.pow(10,sublevel+1);
+            if (sublevel >= 4) {
+                min = Math.pow(10,sublevel-1);
+                max = Math.pow(10,sublevel);
+            }else{
+                min = Math.pow(10,sublevel);
+                max = Math.pow(10,sublevel+1);
+            }
             temp1 = Math.floor(Math.random()*(max-min))+(min);
             op.operation = `${temp1} =`;
             op.result = temp1;
             break;
         case 1://somas - sublevel condiz com numero maximo de digitos dos numeros
-            max = Math.pow(10,sublevel+1);
+            if (sublevel >= 3) {max = Math.pow(10,sublevel-1);
+            }else if(sublevel >= 1){max = Math.pow(10,sublevel);
+            }else{max = Math.pow(10,1);}
             [temp1,temp2] = sum(max,min);
             op.operation = `${temp1} + ${temp2} =`;
             op.result = temp1+temp2;
@@ -65,8 +79,7 @@ function sortOP(level, sublevel=0){
         case 3://multiplicações conforme sublevel (maximo até 100)
             if (sublevel<3) max = 10;
             else max = 100;
-            temp1 = Math.floor(Math.random()*(max-min))+(min);
-            temp2 = Math.floor(Math.random()*(max-min))+(min);
+            [temp1,temp2] = multiply(max,min);
             op.operation = `${temp1} * ${temp2} =`;
             op.result = temp1*temp2;
             break;
@@ -122,7 +135,7 @@ function sortOP(level, sublevel=0){
 }
 
 //testes
-for(let level=0; level<7; level++){
+for(let level=0; level<10; level++){
     for(let sublevel=0; sublevel<5; sublevel++){
         console.log(`Level: ${level} - Sublevel: ${sublevel}`);
         console.log(sortOP(level, sublevel));
