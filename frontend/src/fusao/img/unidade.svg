@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="144.71736"
+   height="153.61217"
+   preserveAspectRatio="xMidYMid meet"
+   version="1.1"
+   id="svg31"
+   sodipodi:docname="unidade.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs35" />
+  <sodipodi:namedview
+     id="namedview33"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     showgrid="false"
+     inkscape:zoom="3.1"
+     inkscape:cx="72.096774"
+     inkscape:cy="77.741935"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g29" />
+  <metadata
+     id="metadata23">Created by potrace 1.15, written by Peter Selinger 2001-2017</metadata>
+  <g
+     class="layer"
+     id="g29"
+     transform="translate(-2.8955418,-2.1620382)">
+    <title
+       id="title25">Layer 1</title>
+    <g
+       fill="#ffc107"
+       id="svg_1"
+       transform="matrix(0.1,0,0,-0.1,-388.38709,906.7742)">
+      <path
+         d="m 4384,8979 c -221,-37 -411,-72 -423,-78 -11,-7 -21,-17 -21,-24 1,-7 80,-70 176,-142 97,-71 178,-134 182,-140 3,-5 -1,-5 -9,1 -113,88 -342,254 -350,254 -29,0 -31,-52 -20,-476 6,-236 15,-445 21,-465 16,-56 37,-77 228,-232 212,-172 216,-175 234,-159 9,7 19,8 28,2 8,-6 31,-10 50,-10 60,0 780,148 813,167 16,10 38,34 48,53 18,32 19,64 19,453 0,457 -1,462 -58,486 -24,10 -87,2 -431,-58 -390,-69 -427,-77 -463,-108 -15,-13 -18,-12 -28,9 -7,13 -26,35 -44,50 l -31,28 34,-17 c 22,-10 58,-16 100,-15 75,1 836,133 869,151 12,6 22,17 22,24 0,7 -92,76 -205,155 -175,122 -212,144 -257,151 -68,12 -21,18 -484,-60 z"
+         id="svg_81" />
+    </g>
+  </g>
+</svg>
+
