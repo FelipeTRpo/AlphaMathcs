@@ -162,8 +162,8 @@ strong{
   /*border: 2px solid black;*/
   top:50px;
   left: 50px;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   background-image: url("../img/unidade.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -175,8 +175,8 @@ strong{
   /*border: 2px solid black;*/
   top: 50px;
   left: 200px;
-  height: 150px;
-  width: 40px;
+  height: 120px;
+  width: 25px;
   background-image: url("../img/dezena.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -187,8 +187,8 @@ strong{
   /*border: 2px solid black;*/
   top: 200px;
   left: 50px;
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 160px;
   background-image: url("../img/centena.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -200,7 +200,7 @@ strong{
   top: 200px;
   left: 200px;
   height: 150px;
-  width: 150px;
+  width: 180px;
   background-image: url("../img/milhar.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -217,8 +217,6 @@ strong{
   background-color: var(--dark-green-2);
 }
 .points{
-  color: black;
-  font-weight: bold;
   display: flex;
   justify-content: space-between;
 }
@@ -236,4 +234,33 @@ strong{
 }
 .moveable1000:active{
   cursor: grabbing;
+}
+/* fontes e cores de fontes em alguns lugares da pagina */
+#operation{
+  margin: 5px;
+  font-family: "Bebas Neue", cursive;
+  color: var(--dark-turquoise);
+  font-size: 30px;
+}
+
+#playershowname,#playershowtag,#playershowdate{
+  margin: 0;
+  font-family: "Bebas Neue", cursive;
+  color: var(--light-green-2);
+  font-size: 30px;
+}
+
+#scores,.points{
+  font-family: "Bebas Neue", cursive;
+  color: var(--dark-turquoise);
+  font-size: 20px;
+}
+#reset-btn{
+  position: absolute;
+  bottom:10px;
+  left: 10px;
+  color: var(--dark-turquoise);
+  background-color: var(--light-green-2);
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
 }

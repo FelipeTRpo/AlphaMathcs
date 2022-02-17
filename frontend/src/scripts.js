@@ -161,6 +161,32 @@ $(".moveable100").draggable({
 $(".moveable1000").draggable({
     containment : "#maingame"
 });
+//Botão de reset
+$('#reset-btn').on('click',function(){
+    $('.moveable1').remove();
+    $('.moveable10').remove();
+    $('.moveable100').remove();
+    $('.moveable1000').remove();
+    accValues = 0;
+    for(let i=0;i<9;i++){
+        $("#maingame").append(`<div class="moveable1" value=1 inside=0></div> `)
+        $("#maingame").append(`<div class="moveable10" value=10 inside=0></div> `)
+        $("#maingame").append(`<div class="moveable100" value=100 inside=0></div> `)
+        $("#maingame").append(`<div class="moveable1000" value=1000 inside=0></div> `)
+    }
+    $(".moveable1").draggable({
+        containment : "#maingame"
+    });
+    $(".moveable10").draggable({
+        containment : "#maingame"
+    });
+    $(".moveable100").draggable({
+        containment : "#maingame"
+    });
+    $(".moveable1000").draggable({
+        containment : "#maingame"
+    });
+})
 //cria a área que recebe os objetos arrataveis
 $( "#alvo1" ).droppable({
     drop:function(event,ui){
