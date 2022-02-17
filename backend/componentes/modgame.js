@@ -34,7 +34,6 @@ function includes(data,playes,scores){
     index = scores.findIndex(function(item){
         return item.name == data.name;
     });
-    console.log(index);
     if (index<0){
         scores.push({"name": data.name, "score": data.score});
     }else{
@@ -44,20 +43,6 @@ function includes(data,playes,scores){
     if (scores.length>NUMBERRANKING){
         scores.pop();
     }
-    /*console.log(index);
-    //atualiza os dados caso o usuario já esteja no ranking
-    if (index>=0){
-        if (data.score > scores[index].score)
-            playes[index].score = playes.score;
-    }else{
-        //caso o usuario não esteja no ranking, verifica se superou o ultimo do ranking
-        if(data.score > scores[NUMBERRANKING-1].score){
-            scores.push({"name": data.name, "score": data.score});
-            scores.sort();
-            scores.pop();
-            console.log(data);
-        }
-    }*/
     return true;
 }
 //verifica os dados do usuario

@@ -84,17 +84,14 @@ function sendregister(){
             console.log('Looks like there was a problem. Status Code: ' + response.status);
             return;
         }
-        console.log('teste3');
         response.json().then(function(data) {
-            console.log('teste4');
             console.log('dados recebidos agora');
             console.log(data);
-            //initlevel();
+            initlevel();
             console.log('dados recebidos');
         });
         }
     ).catch(function(err) {
-        console.log('teste4');
         console.log('Fetch Error :-S', err);
     }); 
 }
@@ -215,8 +212,10 @@ $( "#alvo1" ).droppable({
         if(Number(ui.draggable.attr("inside"))){
             accValues -= Number(ui.draggable.attr("value"));
             console.log(accValues);
+            drop.play();
             if (accValues == oper.result){
                 nextlevel();
+                winLevel.play();
             }
             //$("#score").html(score);
         }
