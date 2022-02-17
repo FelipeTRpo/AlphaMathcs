@@ -225,3 +225,18 @@ strong{
   display: flex;
   justify-content: space-between;
 }
+.moveable1,.moveable10,.moveable100,.moveable1000:hover{
+  cursor: grab;
+}
+.moveable1:active{
+  cursor: grabbing;
+}
+.moveable10:active{
+  cursor: grabbing;
+}
+.moveable100:active{
+  cursor: grabbing;
+}
+.moveable1000:active{
+  cursor: grabbing;
+}
