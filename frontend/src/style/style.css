@@ -156,13 +156,13 @@ strong{
   border: 2px solid black;
   padding: 10px;
 }
-#div1,#div2,#div3,#div4,#div5,#div6,.moveable1{
+.moveable1{
   position: absolute;
   /*border: 2px solid black;*/
-  top:80px;
-  left: 100px;
-  height: 15px;
-  /*width: 80px;*/
+  top:50px;
+  left: 50px;
+  height: 40px;
+  width: 40px;
   background-image: url("../img/unidade.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -172,10 +172,10 @@ strong{
 .moveable10{
   position: absolute;
   /*border: 2px solid black;*/
-  top: 180px;
+  top: 50px;
   left: 200px;
-  height: 100px;
-  /*width: 80px;*/
+  height: 150px;
+  width: 40px;
   background-image: url("../img/dezena.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -184,10 +184,10 @@ strong{
 .moveable100{
   position: absolute;
   /*border: 2px solid black;*/
-  top: 80px;
-  left: 200px;
-  height: 120px;
-  /*width: 80px;*/
+  top: 200px;
+  left: 50px;
+  height: 150px;
+  width: 150px;
   background-image: url("../img/centena.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -196,10 +196,10 @@ strong{
 .moveable1000{
   position: absolute;
   /*border: 2px solid black;*/
-  top: 180px;
-  left: 100px;
+  top: 200px;
+  left: 200px;
   height: 150px;
-  /*width: 80px;*/
+  width: 150px;
   background-image: url("../img/milhar.svg");
   background-repeat: no-repeat;
   background-size: contain;
