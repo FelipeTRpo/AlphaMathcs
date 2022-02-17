@@ -12,7 +12,7 @@ let operationprint = document.getElementById('operation');
 let accValues = 0;
 let sublevel = 0;
 const drop = new Audio("./assets/songs/drop.wav")
-const winLevel = new Audio("./assets/songs/winLevel.wav")
+const winLevel = new Audio("./assets/songs/winLevel.mp3")
 let user = {
     "name": "",
     "description": "",
