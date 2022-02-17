@@ -11,6 +11,8 @@ let scoresvalues = document.querySelectorAll('.points');
 let operationprint = document.getElementById('operation');
 let accValues = 0;
 let sublevel = 0;
+const drop = new Audio("./assets/songs/drop.wav")
+const winLevel = new Audio("./assets/songs/winLevel.wav")
 let user = {
     "name": "",
     "description": "",
@@ -165,8 +167,11 @@ $( "#alvo1" ).droppable({
         console.log("drop");
         accValues += Number(ui.draggable.attr("value"));
         console.log(accValues);
+        drop.play();
         if (accValues == oper.result){
+
             nextlevel();
+            winLevel.play();
         }
         //$("#score").html(score);
         ui.draggable.attr("inside",1)
