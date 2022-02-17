@@ -127,6 +127,7 @@ function sendstatus(name){
                 user.level=data.level;
                 user.score=data.score;
                 playershowname.innerHTML = user.name;
+                playershowtag.innerHTML = user.description;
             }else{
                 playerinit();
             }
