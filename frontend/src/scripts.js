@@ -144,10 +144,10 @@ bStart.addEventListener('click',stargame);
 
 //cria os blocos arrastaveis
 for(let i=0;i<9;i++){
-    $("#maingame").append(`<div class="moveable1" value=1 inside=0>1</div> `)
-    $("#maingame").append(`<div class="moveable10" value=10 inside=0>10</div> `)
-    $("#maingame").append(`<div class="moveable100" value=100 inside=0>100</div> `)
-    $("#maingame").append(`<div class="moveable1000" value=1000 inside=0>1000</div> `)
+    $("#maingame").append(`<div class="moveable1" value=1 inside=0></div> `)
+    $("#maingame").append(`<div class="moveable10" value=10 inside=0></div> `)
+    $("#maingame").append(`<div class="moveable100" value=100 inside=0></div> `)
+    $("#maingame").append(`<div class="moveable1000" value=1000 inside=0></div> `)
 }
 $(".moveable1").draggable({
     containment : "#maingame"
