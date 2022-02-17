@@ -4,8 +4,8 @@ const NUMBERRANKING = 10;//numero de usuarios no ranking
 function validDate(data){
     if ((typeof data.name == 'string') &&
     (typeof data.description == 'string') &&
-    (typeof data.score == 'string') &&
-    (typeof data.level == 'string')){
+    (data.score != '') &&
+    (data.level != '')){
         return true;
     }
     return false;
@@ -34,6 +34,17 @@ function includes(data,playes,scores){
     index = scores.findIndex(function(item){
         return item.name == data.name;
     });
+    console.log(index);
+    if (index<0){
+        scores.push({"name": data.name, "score": data.score});
+    }else{
+        scores[index].score = data.score;
+    }
+    scores.sort((a, b) => b.score - a.score);
+    if (scores.length>NUMBERRANKING){
+        scores.pop();
+    }
+    /*console.log(index);
     //atualiza os dados caso o usuario já esteja no ranking
     if (index>=0){
         if (data.score > scores[index].score)
@@ -46,7 +57,7 @@ function includes(data,playes,scores){
             scores.pop();
             console.log(data);
         }
-    }
+    }*/
     return true;
 }
 //verifica os dados do usuario

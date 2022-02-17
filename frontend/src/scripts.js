@@ -37,6 +37,7 @@ function playerinit(){
     user.description = playertag.value;
     playershowname.innerHTML = user.name;
     playershowtag.innerHTML = user.description;
+    sendregister();
 }
 
 //imprime o ranking de pontuações
@@ -68,6 +69,7 @@ function sendscores(){
 //envia requicisão para salvar os dados no servidor
 function sendregister(){
     const fullurl = url + 'register';
+    console.log(fullurl);
     fetch(fullurl,{
         method: 'POST',
             headers: {
@@ -77,17 +79,22 @@ function sendregister(){
             body: JSON.stringify(user)
     }).then(
         function(response) {
+            console.log(response);
         if (response.status !== 200) {
             console.log('Looks like there was a problem. Status Code: ' + response.status);
             return;
         }
+        console.log('teste3');
         response.json().then(function(data) {
+            console.log('teste4');
+            console.log('dados recebidos agora');
             console.log(data);
-            initlevel();
+            //initlevel();
             console.log('dados recebidos');
         });
         }
     ).catch(function(err) {
+        console.log('teste4');
         console.log('Fetch Error :-S', err);
     }); 
 }
