@@ -126,6 +126,7 @@ function sendstatus(name){
                 if (!user.description) user.description=data.description
                 user.level=data.level;
                 user.score=data.score;
+                playershowname.innerHTML = user.name;
             }else{
                 playerinit();
             }
