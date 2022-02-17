@@ -107,6 +107,7 @@ function nextlevel(){
         sublevel++;
         user.score += 10;
         initlevel();
+        sendscores();
     }else{
         sublevel = 0;
         user.score += 20;
@@ -127,7 +128,7 @@ function sendstatus(name){
             console.log(data);
             if (data){
                 user.name=data.name;
-                if (!user.description) user.description=data.description
+                if (!user.description) user.description=data.description;
                 user.level=data.level;
                 user.score=data.score;
                 playershowname.innerHTML = user.name;
@@ -307,7 +308,7 @@ function sortOP(level, sublevel=0){
             if (sublevel<3) max = 10;
             else max = 100;
             [temp1,temp2] = multiply(max,min);
-            op.operation = `${temp1} * ${temp2} =`;
+            op.operation = `${temp1} x ${temp2} =`;
             op.result = temp1*temp2;
             break;
         case 4://soma, subtração e multiplicação, conforme sublevel (maximo até 100)
@@ -324,7 +325,7 @@ function sortOP(level, sublevel=0){
                 op.result = temp1-temp2;
             }else if(tempop == 2){//caso seja multiplicação
                 [temp1,temp2] = multiply(max,min);
-                op.operation = `${temp1} * ${temp2} =`;
+                op.operation = `${temp1} x ${temp2} =`;
                 op.result = temp1*temp2;
             }
             break;
@@ -348,7 +349,7 @@ function sortOP(level, sublevel=0){
             }else if(tempop == 2){//caso seja multiplicação
                 max = 500;
                 [temp1,temp2] = multiply(max,min);
-                op.operation = `${temp1} * ${temp2} =`;
+                op.operation = `${temp1} x ${temp2} =`;
                 op.result = temp1*temp2;
             }else if(tempop == 3){//caso seja divisão
                 [temp1,temp2] = division(max,min);

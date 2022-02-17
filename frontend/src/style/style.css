@@ -240,7 +240,7 @@ strong{
   margin: 5px;
   font-family: "Bebas Neue", cursive;
   color: var(--dark-turquoise);
-  font-size: 30px;
+  font-size: 90px;
 }
 
 #playershowname,#playershowtag,#playershowdate{
@@ -253,7 +253,7 @@ strong{
 #scores,.points{
   font-family: "Bebas Neue", cursive;
   color: var(--dark-turquoise);
-  font-size: 20px;
+  font-size: 40px;
 }
 #reset-btn{
   position: absolute;
