@@ -9,22 +9,104 @@ let playershowtag = document.getElementById('playershowtag');
 let playershowdate = document.getElementById('playershowdate');
 let scoresvalues = document.querySelectorAll('.points');
 let operationprint = document.getElementById('operation');
-let accValues = 0;
-let sublevel = 0;
-const drop = new Audio("./assets/songs/drop.wav")
-const winLevel = new Audio("./assets/songs/winLevel.mp3")
-let user = {
-    "name": "",
-    "description": "",
-    "score": 0,
-    "level": 0
+const drop = new Audio("./assets/songs/drop.wav");
+const winLevel = new Audio("./assets/songs/winLevel.mp3");
+class gamedb{
+    constructor() {
+        this.accValues = 0;
+        this.sublevel = 0;
+        this.user = {
+            "name": "",
+            "description": "",
+            "score": 0,
+            "level": 0
+        }
+        this.oper = {
+            "operation" : "operação",
+            "result" : 0
+        }
+    }
+    setaccValues(value){
+        this.accValues = value;
+    }
+    incaccValues(plus){
+        this.accValues += plus;
+    }
+    getaccValues(){
+        return this.accValues;
+    }
+    setsublevel(value){
+        this.sublevel = value;
+    }
+    incasublevel(plus){
+        this.sublevel += plus;
+    }
+    getsublevel(){
+        return this.sublevel;
+    }
+    getnameuser(){
+        return this.user.name;
+    }
+    getdescuser(){
+        return this.user.description;
+    }
+    getscoreuser(){
+        return this.user.score;
+    }
+    getleveluser(){
+        return this.user.level;
+    }
+    incscoreuser(plus){
+        this.user.score += plus;
+    }
+    incleveluser(plus){
+        this.user.level += plus;
+    }
+    setnameuser(value){
+        this.user.name = value;
+    }
+    setdescuser(value){
+        this.user.description = value;
+    }
+    setscoreuser(value){
+        this.user.score = value;
+    }
+    setleveluser(value){
+        this.user.level = value;
+    }
+    setUser(userset){
+        this.user = userset;
+    }
+    setOper(operset){
+        this.oper = operset;
+    }
+    getUser(){
+        return this.user;
+    }
+    setOperOperation(operation){
+        this.oper.operation = operation;
+    }
+    setOperResult(resultset){
+        this.oper.result = resultset;
+    }
+    getOper(){
+        return this.oper;
+    }
+    getOperOperation(){
+        return this.oper.operation;
+    }
+    getOperResult(){
+        return this.oper.result;
+    }
 }
-let oper = {
-    "operation" : "operação",
-    "result" : 0
-}
+let gamedates = new gamedb;
+
 //inicia o jogo ao clicar no botão
 function stargame(){
+    if (playername.value == ""){
+        alert("Digite seu nome de jogador");
+        return false;
+    }
     //muda a tela
     initPlay.style.display='none';
     gameplay.style.display='flex';
@@ -33,10 +115,10 @@ function stargame(){
 }
 //quando é um novo jogador
 function playerinit(){
-    user.name = playername.value;
-    user.description = playertag.value;
-    playershowname.innerHTML = user.name;
-    playershowtag.innerHTML = user.description;
+    gamedates.setnameuser(playername.value);
+    gamedates.setdescuser(playertag.value);
+    playershowname.innerHTML = gamedates.getnameuser();
+    playershowtag.innerHTML = gamedates.getdescuser();
     sendregister();
 }
 
@@ -76,7 +158,7 @@ function sendregister(){
               'Accept': 'application/json',
               'Content-Type': 'application/json; charset=UTF-8',
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(gamedates.getUser())
     }).then(
         function(response) {
             console.log(response);
@@ -97,27 +179,28 @@ function sendregister(){
 }
 //inicia o nivel de jogo
 function initlevel(){
-    playershowdate.innerHTML = `Nivel:${user.level} Pontos:${user.score}`;
-    oper = sortOP(user.level,sublevel);
-    operationprint.innerHTML = oper.operation + accValues;
+    playershowdate.innerHTML = `Nivel:${gamedates.getleveluser()} Pontos:${gamedates.getscoreuser()}`;
+    gamedates.setOper(sortOP(gamedates.getleveluser(),gamedates.getsublevel()));
+    operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
-    if (sublevel<4){
-        sublevel++;
-        user.score += 10;
+    restepositions();
+    if (gamedates.getsublevel()<4){
+        gamedates.incasublevel(1);
+        gamedates.incscoreuser(10);
         initlevel();
         sendscores();
     }else{
-        sublevel = 0;
-        user.score += 20;
-        user.level++;
+        gamedates.setsublevel(0);
+        gamedates.incscoreuser(20);
+        gamedates.incleveluser(1);
         sendregister();
     }
 }
 //envia requicisão dos dados salvos do jogador
 function sendstatus(name){
-    const fullurl = url + 'status?name=' +name;
+    const fullurl = url + 'status?name=' + name;
     fetch(fullurl).then(
         function(response) {
         if (response.status !== 200) {
@@ -127,12 +210,12 @@ function sendstatus(name){
         response.json().then(function(data) {
             console.log(data);
             if (data){
-                user.name=data.name;
-                if (!user.description) user.description=data.description;
-                user.level=data.level;
-                user.score=data.score;
-                playershowname.innerHTML = user.name;
-                playershowtag.innerHTML = user.description;
+                gamedates.setnameuser(data.name);
+                if (!gamedates.getdescuser()) gamedates.setdescuser(data.description);
+                gamedates.setleveluser(data.level);
+                gamedates.setscoreuser(data.score);
+                playershowname.innerHTML = gamedates.getnameuser();
+                playershowtag.innerHTML = gamedates.getdescuser();
             }else{
                 playerinit();
             }
@@ -170,11 +253,15 @@ $(".moveable1000").draggable({
 });
 //Botão de reset
 $('#reset-btn').on('click',function(){
+    restepositions();
+})
+//função para rsetar a posição das peças
+function restepositions(){
     $('.moveable1').remove();
     $('.moveable10').remove();
     $('.moveable100').remove();
     $('.moveable1000').remove();
-    accValues = 0;
+    gamedates.setaccValues(0);
     for(let i=0;i<9;i++){
         $("#maingame").append(`<div class="moveable1" value=1 inside=0></div> `)
         $("#maingame").append(`<div class="moveable10" value=10 inside=0></div> `)
@@ -193,39 +280,37 @@ $('#reset-btn').on('click',function(){
     $(".moveable1000").draggable({
         containment : "#maingame"
     });
-    operationprint.innerHTML = oper.operation + accValues;
-})
+    operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+}
 //cria a área que recebe os objetos arrastaveis
 $( "#alvo1" ).droppable({
     drop:function(event,ui){
         console.log("drop");
-        accValues += Number(ui.draggable.attr("value"));
-        console.log(accValues);
-        operationprint.innerHTML = oper.operation + accValues;
+        gamedates.incaccValues(Number(ui.draggable.attr("value")));
+        console.log(gamedates.getaccValues());
+        operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
         drop.play();
-        if (accValues == oper.result){
+        if (gamedates.getaccValues() == gamedates.getOperResult()){
 
             nextlevel();
             winLevel.play();
         }
-        //$("#score").html(score);
         ui.draggable.attr("inside",1)
     },
     over: function (event, ui) {
         if(Number(ui.draggable.attr("inside"))){
-            accValues -= Number(ui.draggable.attr("value"));
-            console.log(accValues);
+            gamedates.incaccValues((-1)*Number(ui.draggable.attr("value")));
+            console.log(gamedates.getaccValues());
             drop.play();
-            if (accValues == oper.result){
+            if (gamedates.getaccValues() == gamedates.getOperResult()){
                 nextlevel();
                 winLevel.play();
             }
-            //$("#score").html(score);
         }
     },
     out: function (event, ui) {
         ui.draggable.attr("inside",0)
-        operationprint.innerHTML = oper.operation + accValues;
+        operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
     }
 });
 
@@ -283,7 +368,7 @@ function sortOP(level, sublevel=0){
                 max = Math.pow(10,sublevel+1);
             }
             temp1 = Math.floor(Math.random()*(max-min))+(min);
-            op.operation = `${temp1} =`;
+            op.operation = `${temp1} =  `;
             op.result = temp1;
             break;
         case 1://somas - sublevel condiz com numero maximo de digitos dos numeros
@@ -291,7 +376,7 @@ function sortOP(level, sublevel=0){
             }else if(sublevel >= 1){max = Math.pow(10,sublevel);
             }else{max = Math.pow(10,1);}
             [temp1,temp2] = sum(max,min);
-            op.operation = `${temp1} + ${temp2} =`;
+            op.operation = `${temp1} + ${temp2} =  `;
             op.result = temp1+temp2;
             break;
         case 2://somas e subtrações de numeros de 0 a 1000 - sublevel não é mais necessario
@@ -299,11 +384,11 @@ function sortOP(level, sublevel=0){
             tempop = Math.round(Math.random());//0 = subtração, 1 = adição
             if(tempop == 0){//caso seja uma subtração
                 [temp1,temp2] = subtraction(max,min);
-                op.operation = `${temp1} - ${temp2} =`;
+                op.operation = `${temp1} - ${temp2} =  `;
                 op.result = temp1-temp2;
             }else{//caso seja adição
                 [temp1,temp2] = sum(max,min);
-                op.operation = `${temp1} + ${temp2} =`;
+                op.operation = `${temp1} + ${temp2} =  `;
                 op.result = temp1+temp2;
             }
             break;
@@ -311,7 +396,7 @@ function sortOP(level, sublevel=0){
             if (sublevel<3) max = 10;
             else max = 100;
             [temp1,temp2] = multiply(max,min);
-            op.operation = `${temp1} x ${temp2} =`;
+            op.operation = `${temp1} x ${temp2} =  `;
             op.result = temp1*temp2;
             break;
         case 4://soma, subtração e multiplicação, conforme sublevel (maximo até 100)
@@ -320,15 +405,15 @@ function sortOP(level, sublevel=0){
             tempop = Math.round(Math.random()*2);//0 = subtração, 1 = adição, 2 = multipicação
             if (tempop == 1){//caso seja adição
                 [temp1,temp2] = sum(max,min);
-                op.operation = `${temp1} + ${temp2} =`;
+                op.operation = `${temp1} + ${temp2} =  `;
                 op.result = temp1+temp2;
             }else if(tempop == 0){//caso seja subtração
                 [temp1,temp2] = subtraction(max,min);
-                op.operation = `${temp1} - ${temp2} =`;
+                op.operation = `${temp1} - ${temp2} =  `;
                 op.result = temp1-temp2;
             }else if(tempop == 2){//caso seja multiplicação
                 [temp1,temp2] = multiply(max,min);
-                op.operation = `${temp1} x ${temp2} =`;
+                op.operation = `${temp1} x ${temp2} =  `;
                 op.result = temp1*temp2;
             }
             break;
@@ -336,27 +421,27 @@ function sortOP(level, sublevel=0){
             min = 1;
             max = (sublevel+1)*10;
             [temp1,temp2] = division(max,min);
-            op.operation = `${temp1} / ${temp2} =`;
+            op.operation = `${temp1} / ${temp2} =  `;
             op.result = temp1/temp2;
             break
         default://mistura todos os casos possiveis - sublevel não é mais necessario
             tempop = Math.round(Math.random()*3);//0 = subtração, 1 = adição, 2 = multipicação, 3 = divisão
             if (tempop == 1){//caso seja adição
                 [temp1,temp2] = sum(max,min);
-                op.operation = `${temp1} + ${temp2} =`;
+                op.operation = `${temp1} + ${temp2} =  `;
                 op.result = temp1+temp2;
             }else if(tempop == 0){//caso seja subtração
                 [temp1,temp2] = subtraction(max,min);
-                op.operation = `${temp1} - ${temp2} =`;
+                op.operation = `${temp1} - ${temp2} =  `;
                 op.result = temp1-temp2;
             }else if(tempop == 2){//caso seja multiplicação
                 max = 500;
                 [temp1,temp2] = multiply(max,min);
-                op.operation = `${temp1} x ${temp2} =`;
+                op.operation = `${temp1} x ${temp2} =  `;
                 op.result = temp1*temp2;
             }else if(tempop == 3){//caso seja divisão
                 [temp1,temp2] = division(max,min);
-                op.operation = `${temp1} / ${temp2} =`;
+                op.operation = `${temp1} / ${temp2} =  `;
                 op.result = temp1/temp2;
             }
             break;
