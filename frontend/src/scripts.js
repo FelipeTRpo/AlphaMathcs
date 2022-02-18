@@ -99,7 +99,7 @@ function sendregister(){
 function initlevel(){
     playershowdate.innerHTML = `Nivel:${user.level} Pontos:${user.score}`;
     oper = sortOP(user.level,sublevel);
-    operationprint.innerHTML = oper.operation;
+    operationprint.innerHTML = oper.operation + accValues;
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
@@ -193,13 +193,15 @@ $('#reset-btn').on('click',function(){
     $(".moveable1000").draggable({
         containment : "#maingame"
     });
+    operationprint.innerHTML = oper.operation + accValues;
 })
-//cria a área que recebe os objetos arrataveis
+//cria a área que recebe os objetos arrastaveis
 $( "#alvo1" ).droppable({
     drop:function(event,ui){
         console.log("drop");
         accValues += Number(ui.draggable.attr("value"));
         console.log(accValues);
+        operationprint.innerHTML = oper.operation + accValues;
         drop.play();
         if (accValues == oper.result){
 
@@ -223,6 +225,7 @@ $( "#alvo1" ).droppable({
     },
     out: function (event, ui) {
         ui.draggable.attr("inside",0)
+        operationprint.innerHTML = oper.operation + accValues;
     }
 });
 
