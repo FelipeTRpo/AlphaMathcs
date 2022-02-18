@@ -7,6 +7,7 @@
 <i>FELIPE TESSAROLLO RAMOS<br/></i>
 <i>IVAN RAMALHO TONIAL<br/></i>
 <i>STENIO VINICIOS DE MEDEIROS<br/></i>
+<a href="./frontend/src/AlphaMathcs.pdf" alt="documantação para o usuário">Documantação para o usuário</a>
 
 <img src="./frontend/src/img/milhar.svg" height="150px"/>
 <img src="./frontend/src/img/centena.svg" height="120px"/>
