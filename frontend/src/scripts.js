@@ -11,6 +11,7 @@ let scoresvalues = document.querySelectorAll('.points');
 let operationprint = document.getElementById('operation');
 const drop = new Audio("./assets/songs/drop.wav");
 const winLevel = new Audio("./assets/songs/winLevel.mp3");
+//classe com os dados dinamicos do jogo
 class gamedb{
     constructor() {
         this.accValues = 0;
@@ -182,6 +183,7 @@ function initlevel(){
     playershowdate.innerHTML = `Nivel:${gamedates.getleveluser()} Pontos:${gamedates.getscoreuser()}`;
     gamedates.setOper(sortOP(gamedates.getleveluser(),gamedates.getsublevel()));
     operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+    sendscores();
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
@@ -190,7 +192,6 @@ function nextlevel(){
         gamedates.incasublevel(1);
         gamedates.incscoreuser(10);
         initlevel();
-        sendscores();
     }else{
         gamedates.setsublevel(0);
         gamedates.incscoreuser(20);
