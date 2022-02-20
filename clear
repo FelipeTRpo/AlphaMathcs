@@ -1,0 +1,289 @@
+[33mcommit 77a079308930bcb2670079884e1108235fdd76d9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Fri Feb 18 21:32:08 2022 -0300
+
+    concertei o bug de atraso no save
+
+[33mcommit 3bfca3eaa91813a35aaec84a8d64927b9675d072[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Fri Feb 18 19:18:36 2022 -0300
+
+    criei classe, fiz o reset ao acertar e alerta sem nome
+
+[33mcommit 8e1871387e7ddc336a5f7397bf46c8bc80302fb0[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Fri Feb 18 19:13:40 2022 -0300
+
+    criei classe, fiz o reset ao acertar e alerta sem nome
+
+[33mcommit 96313750eb8e4dfe56429cfad67e40177d425719[m
+Author: Felipe Alan <ficlek13@hotmail.com>
+Date:   Fri Feb 18 17:01:00 2022 -0300
+
+    mudança dinamica no num ao lado do desafio
+
+[33mcommit cf4c362072bfb55b57a94598fe0a7f34ad446ec9[m
+Author: Stenio Vinicios de Medeiros <91326327+steniovm@users.noreply.github.com>
+Date:   Thu Feb 17 21:49:18 2022 -0300
+
+    Update README.me
+
+[33mcommit fb02490f13e1a6520bf586ae0841a267ad12bfd8[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Thu Feb 17 20:18:56 2022 -0300
+
+    enviei o pdf da documentação
+
+[33mcommit 64d99a5fce83c7146ec70f18a872ae15fd56e4c5[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Thu Feb 17 19:50:30 2022 -0300
+
+    aumentei a fonte e coloquei frases nos personagens
+
+[33mcommit 2e6e3a85256450908efe001e894c044f90e21dd3[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Thu Feb 17 19:15:40 2022 -0300
+
+    coloquei o som tambem na retirada de peças
+
+[33mcommit d683c2aa118e49baa2784bcf57f8d794afa5b509[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Thu Feb 17 19:07:55 2022 -0300
+
+    concertei o save
+
+[33mcommit d8c348323e337d201d96aa181c22da121c142b33[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Thu Feb 17 16:02:03 2022 -0300
+
+    concertei o subtitulo igual frase do jogador
+
+[33mcommit ce6779ba74a37fc92cb5ac56da5823e67b766546[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Thu Feb 17 15:57:08 2022 -0300
+
+    concertei o titulo igual nome do jogador
+
+[33mcommit 458d674baa03bd20ddec637647d4f248f6e89c32[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Thu Feb 17 15:46:40 2022 -0300
+
+    aumentei os records iniciais
+
+[33mcommit 92eabf713a00e47b2540fbaa21dd82659c0756c5[m
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Thu Feb 17 15:34:22 2022 -0300
+
+    botao reset, letrar e cores modficadas
+
+[33mcommit c208aee4883854ad7a4b053f17b93fe5cfe1a67b[m
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Thu Feb 17 15:02:53 2022 -0300
+
+    cores
+
+[33mcommit 3e74383805de4ef03278891f7fb31279282b565b[m
+Merge: b4bac89 95e3ac2
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Thu Feb 17 14:55:18 2022 -0300
+
+    Merge branch 'main' of https://github.com/FelipeTRpo/AlphaMathcs
+
+[33mcommit 95e3ac2a24246178d90a222969da4e1504944747[m
+Author: Ivan Tonial <ivantonial@gmail.com>
+Date:   Thu Feb 17 14:53:38 2022 -0300
+
+    Atualização SVG
+
+[33mcommit b4bac899f9743dc55764d7478344c9bddcd66100[m
+Merge: 67fca83 c05e1f0
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Thu Feb 17 14:17:34 2022 -0300
+
+    Merge branch 'main' of https://github.com/FelipeTRpo/AlphaMathcs
+
+[33mcommit 67fca83b0e48f42fc74c036eba7dca0d07b082c2[m
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Thu Feb 17 14:16:57 2022 -0300
+
+    tamanho dos cubos modificado
+
+[33mcommit c05e1f049680ed80d7793d1375ac2746ec9c0e4f[m
+Merge: d1c03aa be1935b
+Author: Felipe Alan <ficlek13@hotmail.com>
+Date:   Thu Feb 17 11:25:14 2022 -0300
+
+    Merge branch 'main' of https://github.com/FelipeTRpo/AlphaMathcs
+
+[33mcommit d1c03aa4d0aa375d8ed3a5d29bf4d54237cf6639[m
+Author: Felipe Alan <ficlek13@hotmail.com>
+Date:   Thu Feb 17 11:24:41 2022 -0300
+
+    correção do cursor do mouse
+
+[33mcommit be1935b025ab426d957d6f0170f0defa9e8ede28[m
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Thu Feb 17 11:03:01 2022 -0300
+
+    tamanho dos cubos e posicionamento modificado
+
+[33mcommit 708a848e11117f997585e96bc3be2794a800e2d8[m
+Author: Felipe Alan <ficlek13@hotmail.com>
+Date:   Thu Feb 17 05:21:03 2022 -0300
+
+    correção winLevel.wav para .mp3
+
+[33mcommit e1f3add0bdc9104394b76e8eda531bd5db464574[m
+Author: Felipe Alan <ficlek13@hotmail.com>
+Date:   Thu Feb 17 05:18:06 2022 -0300
+
+    add audios drop/winLevel
+
+[33mcommit d3258d16be13c604fe20eccff4c55378039c8e7f[m
+Author: Stenio Vinicios de Medeiros <91326327+steniovm@users.noreply.github.com>
+Date:   Wed Feb 16 20:24:09 2022 -0300
+
+    Update .gitgnore
+
+[33mcommit 27adeadd3ac88bd924d07e915f9397d543013dbd[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Wed Feb 16 18:47:12 2022 -0300
+
+    já esta jogavel
+
+[33mcommit 56fc15325da4be3de86c130b8055c2f7bd3d82ab[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Wed Feb 16 14:36:42 2022 -0300
+
+    começado a reunir as coisas
+
+[33mcommit af74940359576b35019bcf076b34c05f245e2405[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Tue Feb 15 17:07:03 2022 -0300
+
+    corrigido bugs no sorteio
+
+[33mcommit 9e962b421549b1166bb227138c38ccd0fc7b9710[m
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Tue Feb 15 16:18:28 2022 -0300
+
+    Mecanica do jogo adicionada
+
+[33mcommit 32f2d72e7762a13412f40b409de012f94f8484ad[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Tue Feb 15 16:09:03 2022 -0300
+
+    adcionei arquivos de som
+
+[33mcommit 6e1b2301df2921ef602a3f68b2ad71b3ba4cd100[m
+Author: Stenio Vinicios de Medeiros <91326327+steniovm@users.noreply.github.com>
+Date:   Tue Feb 15 14:05:25 2022 -0300
+
+    Proporções ajustadas no README.md
+
+[33mcommit 4c57fd804edfd00a0c1c6cc12ca8d378f6aaea7a[m
+Author: Stenio Vinicios de Medeiros <91326327+steniovm@users.noreply.github.com>
+Date:   Tue Feb 15 13:59:05 2022 -0300
+
+    Create gitignore
+
+[33mcommit cf7f5d5887977062b3ce1c26fae636a14c2d7a78[m
+Merge: b6f779a 0cd13c3
+Author: Felipe Alan <91492737+Ficleks@users.noreply.github.com>
+Date:   Tue Feb 15 13:36:39 2022 -0300
+
+    Merge pull request #1 from Ficleks/main
+    
+    att
+
+[33mcommit 0cd13c39dedbcb548f30db328615f7dcade05d74[m
+Merge: ab32591 b6f779a
+Author: Felipe Alan <91492737+Ficleks@users.noreply.github.com>
+Date:   Tue Feb 15 13:35:28 2022 -0300
+
+    Merge branch 'FelipeTRpo:main' into main
+
+[33mcommit ab3259169ba3199de5ab2547b449bd3103f2f582[m
+Author: Felipe Alan <ficlek13@hotmail.com>
+Date:   Tue Feb 15 13:29:02 2022 -0300
+
+    removed node modules
+
+[33mcommit b6f779a8bbfe50b5b86f343eb7c39400aeef2904[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Tue Feb 15 11:34:26 2022 -0300
+
+    função se sorteio das operações
+
+[33mcommit 06f43646f1fecf205dd5a89394c52758a39424b6[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Mon Feb 14 21:05:24 2022 -0300
+
+    APIs testadas e funcioanndo
+
+[33mcommit 8638efd6ac48a6583075a5b57e05fb200414dc5c[m
+Author: Felipe Alan <ficlek13@hotmail.com>
+Date:   Mon Feb 14 18:27:57 2022 -0300
+
+    att-src2
+
+[33mcommit 63c68fff07db1952a0541a2c3f58ea4850635d90[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Mon Feb 14 01:46:22 2022 -0300
+
+    incluidas APIs
+
+[33mcommit c3a1e7ed0963af5252c1a040cf2964a145ef5dd3[m
+Author: David <david.henri.santana@gmail.com>
+Date:   Sun Feb 13 19:45:41 2022 -0300
+
+    substitui arquivos do front
+
+[33mcommit 2794d3a9d1e0deaf5dec862c6267dcd1f46f86bb[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Sun Feb 13 17:36:04 2022 -0300
+
+    pequenos ajustes
+
+[33mcommit 3692aff6f8c9318dcd544d51a821c78321fa7f24[m
+Author: Stenio Vinicios de Medeiros <91326327+steniovm@users.noreply.github.com>
+Date:   Sun Feb 13 16:56:01 2022 -0300
+
+    Update README.md
+
+[33mcommit f7a8d60703cfce1961651541e01e700edf1d8837[m
+Merge: 93210be aa300db
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Sun Feb 13 16:37:46 2022 -0300
+
+    Merge branch 'main' of github.com:FelipeTRpo/AlphaMathcs
+
+[33mcommit 93210bef6cf6bfe35b018dc668920fb75f15ba59[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Sun Feb 13 16:36:24 2022 -0300
+
+    estrutura basica
+
+[33mcommit aa300db7c82701b868434700188456e3f3a268dc[m
+Author: Ivan Tonial <ivantonial@gmail.com>
+Date:   Sun Feb 13 15:20:06 2022 -0300
+
+    readme
+
+[33mcommit ca0aec3e30da5d913d570611e48ff6782c5630d4[m
+Author: Stenio Vinicios de Medeiros <steniovm@gmail.com>
+Date:   Sat Feb 12 20:50:23 2022 -0300
+
+    estrutura basica
+
+[33mcommit 456e28a630e79d5ba2f78afe8ed2081c680d3dbe[m[33m ([m[1;31morigin/branch2[m[33m, [m[1;31morigin/branch1[m[33m)[m
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Sat Feb 12 15:05:09 2022 -0300
+
+    Names
+
+[33mcommit 4d3d928443f8b759346c80323d66b8f839072369[m
+Author: FelipeTRpo <felipetrpoke@hotmail.com>
+Date:   Sat Feb 12 15:03:34 2022 -0300
+
+    commit
