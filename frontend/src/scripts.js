@@ -450,3 +450,25 @@ function sortOP(level, sublevel=0){
     //retorna um objeto com a operação montada em um string e o resultado em um inteiro
     return op;
 }
+// Modal
+
+const modal = document.getElementById("modal");
+const btn = document.getElementById("bTutorial");
+const span = document.getElementsByClassName("close")[0];
+const video = document.getElementById("videoTutorial")
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+    modal.style.display = "none";
+    video.pause();
+    video.currentTime = 0;
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    video.pause();
+    video.currentTime = 0;
+  }
+}

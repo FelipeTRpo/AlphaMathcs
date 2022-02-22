@@ -36,7 +36,24 @@
         />
         <input id="playername" class="inputplayer" type="text" placeholder="Seu Nome" />
         <input id="playertag" class="inputplayer" type="text" placeholder="Seu Lema" />
-        <button id="bStart">JOGAR AGORA!</button>
+        <button id="bStart" class="botao">JOGAR AGORA!</button>
+        <button id="bTutorial" class="botao">Tutorial</button>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 id="h2Tutorial">Tutorial</h2>
+              </div>
+              <div class="modal-body">
+                <span>1- Clique no vídeo abaixo para dar início ao tutorial</span>
+                <video id="videoTutorial" src="./img/tutorial.mp4" controls="" width="800px" poster="./img/tutorial.png"></video>
+                <span>2- Para sair basta clicar fora da tela</span>
+              </div>
+              <div class="modal-footer">
+                <h3><span>AlphaEdTech&copy;</span></h3>
+              </div>
+            </div>
       </section>
       <section id="gameplay">
           <h2 id="playershowname">titulo</h2>
