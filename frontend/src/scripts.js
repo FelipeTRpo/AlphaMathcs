@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/';
+const url = 'http://' + location.host.split(':')[0] + ':3000/';//'http://localhost:3000/';
 let bStart = document.getElementById('bStart');
 let initPlay = document.getElementById('initPlay');
 let playername = document.getElementById('playername');

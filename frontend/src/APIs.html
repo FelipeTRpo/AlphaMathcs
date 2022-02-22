@@ -13,7 +13,7 @@
         <textarea id="recebers" placeholder="Retorno da requicição"></textarea>
     </body>
     <script type="text/javascript">
-const url = 'http://localhost:3000/';
+const url = 'http://' + location.host.split(':')[0] + ':3000/';//'http://localhost:3000/';
 let bregister = document.getElementById("bregister");
 let bscores = document.getElementById("bscores");
 let bstatus = document.getElementById("bstatus");
