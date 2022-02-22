@@ -455,7 +455,8 @@ function sortOP(level, sublevel=0){
 const modal = document.getElementById("modal");
 const btn = document.getElementById("bTutorial");
 const span = document.getElementsByClassName("close")[0];
-const video = document.getElementById("videoTutorial")
+const video = document.getElementById("videoTutorial");
+const modalheader = document.getElementById('modal-header');
 
 btn.onclick = function() {
   modal.style.display = "block";
@@ -466,9 +467,12 @@ span.onclick = function() {
     video.currentTime = 0;
 }
 window.onclick = function(event) {
-  if (event.target == modal) {
+  if (event.target == modal)
+    closemodal();
+}
+function closemodal(){
     modal.style.display = "none";
     video.pause();
     video.currentTime = 0;
-  }
 }
+modalheader.addEventListener('click',closemodal);
