@@ -462,9 +462,7 @@ btn.onclick = function() {
   modal.style.display = "block";
 }
 span.onclick = function() {
-    modal.style.display = "none";
-    video.pause();
-    video.currentTime = 0;
+    closemodal();
 }
 window.onclick = function(event) {
   if (event.target == modal)
