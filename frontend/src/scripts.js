@@ -12,6 +12,7 @@ let playershowdate = document.getElementById('playershowdate');
 let scoresvalues = document.querySelectorAll('.points');
 let operationprint = document.getElementById('operation');
 let showtimer = document.getElementById('showtimer');
+let applause = document.getElementById('applause');
 //sons
 const drop = new Audio("./assets/songs/drop.wav");
 const winLevel = new Audio("./assets/songs/winLevel.mp3");
@@ -216,10 +217,10 @@ function initlevel(){
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
+    applause.style.display = 'block';
     winLevel.play();
     stoped = true;
-    const interval = setInterval(function(){
-        restepositions();
+    let interval = setInterval(function(){
         gamedates.setTimeCred(timeSeg);
         if (gamedates.getsublevel()<4){
             gamedates.incasublevel(1);
@@ -232,6 +233,8 @@ function nextlevel(){
             sendregister();
         }
         stoped = false;
+        restepositions();
+        applause.style.display = 'none';
         clearTimeout(interval);
     },5000);//comemoração de 5 segundos antes de ir para o proximo nivel 
 }

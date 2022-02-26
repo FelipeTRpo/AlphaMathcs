@@ -337,7 +337,6 @@ strong{
   font-size: 3em;
   font-weight: bold;
 }
-
 .close:hover,.close:focus {
   color: #000;
   text-decoration: none;
@@ -358,4 +357,10 @@ strong{
 }
 .modal-footer {
   background-color: var(--dark-blue);
+}
+#applause{
+  display:none;
+  position:absolute;
+  margin: auto;
+  width: 50%;
 }
