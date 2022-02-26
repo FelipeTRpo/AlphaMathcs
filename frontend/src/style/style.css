@@ -364,3 +364,7 @@ strong{
   margin: auto;
   width: 50%;
 }
+#emoji{
+  width: 60px;
+  height: 60px;
+}

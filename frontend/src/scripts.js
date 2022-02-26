@@ -13,9 +13,18 @@ let scoresvalues = document.querySelectorAll('.points');
 let operationprint = document.getElementById('operation');
 let showtimer = document.getElementById('showtimer');
 let applause = document.getElementById('applause');
+let emoji = document.getElementById('emoji');
 //sons
 const drop = new Audio("./assets/songs/drop.wav");
 const winLevel = new Audio("./assets/songs/winLevel.mp3");
+//emojis
+const emojis = {
+    'crying': './img/emoji-crying.png',
+    'sadness':'./img/emoji-sadness.png',
+    'smiley':'./img/emoji-smiley.png',
+    'sunglasses':'./img/emoji-sunglasses.png',
+    'thinking':'./img/emoji-thinking.png'
+}
 //constantes de tempo
 let timecred = 0;//credito de tempo
 let timeSeg = 0;//tempo restante
@@ -210,6 +219,7 @@ function initlevel(){
     playershowdate.innerHTML = `Nivel:${gamedates.getleveluser()} Pontos:${gamedates.getscoreuser()}`;
     gamedates.setOper(sortOP(gamedates.getleveluser(),gamedates.getsublevel()));
     operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+    emoji.src = emojis.thinking;
     timecred = gamedates.getTimeCred() + 30;//a cada nivel ganha 30 segundos
     timecr = +new Date(); 
     stoped = false;
@@ -217,6 +227,7 @@ function initlevel(){
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
+    emoji.src = emojis.sunglasses;
     applause.style.display = 'block';
     winLevel.play();
     stoped = true;
@@ -235,6 +246,7 @@ function nextlevel(){
         stoped = false;
         restepositions();
         applause.style.display = 'none';
+        emoji.src = emojis.thinking;
         clearTimeout(interval);
     },5000);//comemoração de 5 segundos antes de ir para o proximo nivel 
 }
@@ -325,16 +337,24 @@ function restepositions(){
     });
     operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
 }
+let diftemp1, diftemp2;
 //cria a área que recebe os objetos arrastaveis
 $( "#alvo1" ).droppable({
     drop:function(event,ui){
         console.log("drop");
         if (!stoped){
+            diftemp1 = gamedates.getaccValues()-gamedates.getOperResult();
+            if (diftemp1 < 0) diftemp1 *= -1;
             gamedates.incaccValues(Number(ui.draggable.attr("value")));
             console.log(gamedates.getaccValues());
             operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
             if (gamedates.getaccValues() == gamedates.getOperResult()){
                 nextlevel();
+            }else{
+                diftemp2 = gamedates.getaccValues()-gamedates.getOperResult();
+                if (diftemp2 < 0) diftemp2 *= -1;
+                if (diftemp2 < diftemp1) emoji.src = emojis.smiley;
+                else emoji.src = emojis.sadness;
             }
         }
         drop.play();
@@ -343,10 +363,17 @@ $( "#alvo1" ).droppable({
     over: function (event, ui) {
         if(Number(ui.draggable.attr("inside"))){
             if (!stoped){
+                diftemp1 = gamedates.getaccValues()-gamedates.getOperResult();
+                if (diftemp1 < 0) diftemp1 *= -1;
                 gamedates.incaccValues((-1)*Number(ui.draggable.attr("value")));
                 console.log(gamedates.getaccValues());
                 if (gamedates.getaccValues() == gamedates.getOperResult()){
                     nextlevel();
+                }else{
+                    diftemp2 = gamedates.getaccValues()-gamedates.getOperResult();
+                    if (diftemp2 < 0) diftemp2 *= -1;
+                    if (diftemp2 < diftemp1) emoji.src = emojis.smiley;
+                    else emoji.src = emojis.sadness;
                 }
             }
             drop.play();
