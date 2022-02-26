@@ -547,3 +547,109 @@ function closemodal(){
     video.currentTime = 0;
 }
 modalheader.addEventListener('click',closemodal);
+
+let moveabl1 = document.querySelectorAll('.moveable1');
+let moveabl10 = document.querySelectorAll('.moveable10');
+let moveabl100 = document.querySelectorAll('.moveable100');
+let moveabl1000 = document.querySelectorAll('.moveable1000');
+let alvo = document.getElementById('alvo1');
+
+function movall1(){
+    console.log('testedblclick')
+    diftemp1 = gamedates.getaccValues()-gamedates.getOperResult();
+    if (diftemp1 < 0) diftemp1 *= -1;
+    for (let i=0 ; i<moveabl1.length; i++){
+        let origin = moveabl1[i].parentElement;
+        console.log(origin.id);
+        if (origin.id != 'alvo1'){
+            alvo.appendChild(moveabl1[i]);
+            gamedates.incaccValues(1);
+            operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+            console.log(gamedates.getaccValues());
+        }
+    }
+    if (gamedates.getaccValues() == gamedates.getOperResult()){
+        nextlevel();
+    }else{
+        diftemp2 = gamedates.getaccValues()-gamedates.getOperResult();
+        if (diftemp2 < 0) diftemp2 *= -1;
+        if (diftemp2 < diftemp1) emoji.src = emojis.smiley;
+        else emoji.src = emojis.sadness;
+    }
+}
+function movall10(){
+    console.log('testedblclick')
+    diftemp1 = gamedates.getaccValues()-gamedates.getOperResult();
+    if (diftemp1 < 0) diftemp1 *= -1;
+    for (let i=0 ; i<moveabl10.length; i++){
+        let origin = moveabl10[i].parentElement;
+        console.log(origin.id);
+        if (origin.id != 'alvo1'){
+            alvo.appendChild(moveabl10[i]);
+            gamedates.incaccValues(10);
+            operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+            console.log(gamedates.getaccValues());
+        }
+    }
+    if (gamedates.getaccValues() == gamedates.getOperResult()){
+        nextlevel();
+    }else{
+        diftemp2 = gamedates.getaccValues()-gamedates.getOperResult();
+        if (diftemp2 < 0) diftemp2 *= -1;
+        if (diftemp2 < diftemp1) emoji.src = emojis.smiley;
+        else emoji.src = emojis.sadness;
+    }
+}
+function movall100(){
+    console.log('testedblclick')
+    diftemp1 = gamedates.getaccValues()-gamedates.getOperResult();
+    if (diftemp1 < 0) diftemp1 *= -1;
+    for (let i=0 ; i<moveabl100.length; i++){
+        let origin = moveabl100[i].parentElement;
+        console.log(origin.id);
+        if (origin.id != 'alvo1'){
+            alvo.appendChild(moveabl100[i]);
+            gamedates.incaccValues(100);
+            operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+            console.log(gamedates.getaccValues());
+        }
+    }
+    if (gamedates.getaccValues() == gamedates.getOperResult()){
+        nextlevel();
+    }else{
+        diftemp2 = gamedates.getaccValues()-gamedates.getOperResult();
+        if (diftemp2 < 0) diftemp2 *= -1;
+        if (diftemp2 < diftemp1) emoji.src = emojis.smiley;
+        else emoji.src = emojis.sadness;
+    }
+}
+function movall1000(){
+    console.log('testedblclick')
+    diftemp1 = gamedates.getaccValues()-gamedates.getOperResult();
+    if (diftemp1 < 0) diftemp1 *= -1;
+    for (let i=0 ; i<moveabl1000.length; i++){
+        let origin = moveabl1000[i].parentElement;
+        console.log(origin.id);
+        if (origin.id != 'alvo1'){
+            alvo.appendChild(moveabl1000[i]);
+            gamedates.incaccValues(1000);
+            operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+            console.log(gamedates.getaccValues());
+        }
+    }
+    if (gamedates.getaccValues() == gamedates.getOperResult()){
+        nextlevel();
+    }else{
+        diftemp2 = gamedates.getaccValues()-gamedates.getOperResult();
+        if (diftemp2 < 0) diftemp2 *= -1;
+        if (diftemp2 < diftemp1) emoji.src = emojis.smiley;
+        else emoji.src = emojis.sadness;
+    }
+}
+
+for (let i=0 ; i<moveabl1.length; i++){
+    moveabl1[i].addEventListener('dblclick',movall1);
+    moveabl10[i].addEventListener('dblclick',movall10);
+    moveabl100[i].addEventListener('dblclick',movall100);
+    moveabl1000[i].addEventListener('dblclick',movall1000);
+}
