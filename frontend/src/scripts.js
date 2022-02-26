@@ -135,7 +135,10 @@ function updateTime()
     if (stoped) return;
     timeSeg = timecred - Math.floor((+new Date() - timecr) / 1000);
     showtimer.innerHTML = timeSeg.toString() + " seg";
-    if (timeSeg==0) stoped = true;
+    if (timeSeg==0) {
+        stoped = true;
+        emoji.src = emojis.crying;
+    }
     return;
 }
 function stargame(){
