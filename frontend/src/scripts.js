@@ -122,8 +122,7 @@ let gamedates = new gamedb;
 //inicia timer do jogo
 function updateTime()
 {
-    if (stoped)
-        return;
+    if (stoped) return;
     timeSeg = timecred - Math.floor((+new Date() - timecr) / 1000);
     showtimer.innerHTML = timeSeg.toString() + " seg";
     if (timeSeg==0) stoped = true;
@@ -210,29 +209,31 @@ function initlevel(){
     playershowdate.innerHTML = `Nivel:${gamedates.getleveluser()} Pontos:${gamedates.getscoreuser()}`;
     gamedates.setOper(sortOP(gamedates.getleveluser(),gamedates.getsublevel()));
     operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
-    timecred = gamedates.getTimeCred() + 60;
-    console.log(gamedates.getTimeCred());
-    console.log(timecred);
+    timecred = gamedates.getTimeCred() + 30;//a cada nivel ganha 30 segundos
     timecr = +new Date(); 
     stoped = false;
-    updateTime();
-    timectrl = window.setInterval(updateTime, 1000); 
     sendscores();
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
-    restepositions();
-    gamedates.setTimeCred(timeSeg);
-    if (gamedates.getsublevel()<4){
-        gamedates.incasublevel(1);
-        gamedates.incscoreuser(10);
-        initlevel();
-    }else{
-        gamedates.setsublevel(0);
-        gamedates.incscoreuser(20);
-        gamedates.incleveluser(1);
-        sendregister();
-    }
+    winLevel.play();
+    stoped = true;
+    const interval = setInterval(function(){
+        restepositions();
+        gamedates.setTimeCred(timeSeg);
+        if (gamedates.getsublevel()<4){
+            gamedates.incasublevel(1);
+            gamedates.incscoreuser(10);
+            initlevel();
+        }else{
+            gamedates.setsublevel(0);
+            gamedates.incscoreuser(20);
+            gamedates.incleveluser(1);
+            sendregister();
+        }
+        stoped = false;
+        clearTimeout(interval);
+    },5000);//comemoração de 5 segundos antes de ir para o proximo nivel 
 }
 //envia requicisão dos dados salvos do jogador
 function sendstatus(name){
@@ -266,6 +267,8 @@ function sendstatus(name){
 }
 //funções executados ao abrir a pagina
 sendscores();
+updateTime();
+timectrl = window.setInterval(updateTime, 1000); 
 //eventos
 bStart.addEventListener('click',stargame);
 
@@ -329,7 +332,6 @@ $( "#alvo1" ).droppable({
             operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
             if (gamedates.getaccValues() == gamedates.getOperResult()){
                 nextlevel();
-                winLevel.play();
             }
         }
         drop.play();
@@ -342,7 +344,6 @@ $( "#alvo1" ).droppable({
                 console.log(gamedates.getaccValues());
                 if (gamedates.getaccValues() == gamedates.getOperResult()){
                     nextlevel();
-                    winLevel.play();
                 }
             }
             drop.play();
