@@ -14,6 +14,7 @@ function validDate(data){
 function includes(data,playes,scores){
     data.level = parseInt(data.level);
     data.score = parseInt(data.score);
+    data.timecred = parseInt(data.timecred);
     let index;
     //verifica se o usuario já está cadastrado
     index = playes.findIndex(function(item){

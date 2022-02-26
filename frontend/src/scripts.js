@@ -1,4 +1,6 @@
-const url = 'http://' + location.host.split(':')[0] + ':3000/';//'http://localhost:3000/';
+//url para requicisões
+const url = 'http://' + location.host.split(':')[0] + ':3000/';
+//elementos html
 let bStart = document.getElementById('bStart');
 let initPlay = document.getElementById('initPlay');
 let playername = document.getElementById('playername');
@@ -9,8 +11,16 @@ let playershowtag = document.getElementById('playershowtag');
 let playershowdate = document.getElementById('playershowdate');
 let scoresvalues = document.querySelectorAll('.points');
 let operationprint = document.getElementById('operation');
+let showtimer = document.getElementById('showtimer');
+//sons
 const drop = new Audio("./assets/songs/drop.wav");
 const winLevel = new Audio("./assets/songs/winLevel.mp3");
+//constantes de tempo
+let timecred = 0;//credito de tempo
+let timeSeg = 0;//tempo restante
+let timecr = 0;// início da contagem de tempo
+let timectrl = 0;//referência ao setInterval de tempo
+let stoped = true;//está parado (true) ou não (false)
 //classe com os dados dinamicos do jogo
 class gamedb{
     constructor() {
@@ -20,7 +30,8 @@ class gamedb{
             "name": "",
             "description": "",
             "score": 0,
-            "level": 0
+            "level": 0,
+            "timecred": 0
         }
         this.oper = {
             "operation" : "operação",
@@ -99,10 +110,25 @@ class gamedb{
     getOperResult(){
         return this.oper.result;
     }
+    setTimeCred(value){
+        this.user.timecred = value;
+    }
+    getTimeCred(){
+        return this.user.timecred;
+    }
 }
 let gamedates = new gamedb;
 
 //inicia o jogo ao clicar no botão
+function updateTime()
+{
+    if (stoped)
+        return;
+    timeSeg = timecred - Math.floor((+new Date() - timecr) / 1000);
+    showtimer.innerHTML = timeSeg.toString() + " seg";
+    if (timeSeg==0) stoped = true;
+    return;
+}
 function stargame(){
     if (playername.value == ""){
         alert("Digite seu nome de jogador");
@@ -118,8 +144,10 @@ function stargame(){
 function playerinit(){
     gamedates.setnameuser(playername.value);
     gamedates.setdescuser(playertag.value);
+    gamedates.setTimeCred(60);
     playershowname.innerHTML = gamedates.getnameuser();
     playershowtag.innerHTML = gamedates.getdescuser();
+    showtimer.innerHTML = gamedates.getTimeCred();
     sendregister();
 }
 
@@ -183,11 +211,19 @@ function initlevel(){
     playershowdate.innerHTML = `Nivel:${gamedates.getleveluser()} Pontos:${gamedates.getscoreuser()}`;
     gamedates.setOper(sortOP(gamedates.getleveluser(),gamedates.getsublevel()));
     operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
+    timecred = gamedates.getTimeCred() + 60;
+    console.log(gamedates.getTimeCred());
+    console.log(timecred);
+    timecr = +new Date(); 
+    stoped = false;
+    updateTime();
+    timectrl = window.setInterval(updateTime, 1000); 
     sendscores();
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
     restepositions();
+    gamedates.setTimeCred(timeSeg);
     if (gamedates.getsublevel()<4){
         gamedates.incasublevel(1);
         gamedates.incscoreuser(10);
@@ -215,6 +251,7 @@ function sendstatus(name){
                 if (!gamedates.getdescuser()) gamedates.setdescuser(data.description);
                 gamedates.setleveluser(data.level);
                 gamedates.setscoreuser(data.score);
+                gamedates.setTimeCred(data.timecred);
                 playershowname.innerHTML = gamedates.getnameuser();
                 playershowtag.innerHTML = gamedates.getdescuser();
             }else{
