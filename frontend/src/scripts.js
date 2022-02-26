@@ -461,7 +461,7 @@ function sortOP(level, sublevel=0){
             min = 1;
             max = (sublevel+1)*10;
             [temp1,temp2] = division(max,min);
-            op.operation = `${temp1} / ${temp2} =  `;
+            op.operation = `${temp1} ÷ ${temp2} =  `;
             op.result = temp1/temp2;
             break
         default://mistura todos os casos possiveis - sublevel não é mais necessario
@@ -481,7 +481,7 @@ function sortOP(level, sublevel=0){
                 op.result = temp1*temp2;
             }else if(tempop == 3){//caso seja divisão
                 [temp1,temp2] = division(max,min);
-                op.operation = `${temp1} / ${temp2} =  `;
+                op.operation = `${temp1} ÷ ${temp2} =  `;
                 op.result = temp1/temp2;
             }
             break;
