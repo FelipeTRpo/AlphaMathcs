@@ -119,7 +119,7 @@ class gamedb{
 }
 let gamedates = new gamedb;
 
-//inicia o jogo ao clicar no botão
+//inicia timer do jogo
 function updateTime()
 {
     if (stoped)
@@ -150,7 +150,6 @@ function playerinit(){
     showtimer.innerHTML = gamedates.getTimeCred();
     sendregister();
 }
-
 //imprime o ranking de pontuações
 function showScores(data){
     scoresvalues.forEach((item,index)=>{
@@ -299,7 +298,7 @@ function restepositions(){
     $('.moveable10').remove();
     $('.moveable100').remove();
     $('.moveable1000').remove();
-    gamedates.setaccValues(0);
+    if(!stoped) gamedates.setaccValues(0);
     for(let i=0;i<9;i++){
         $("#maingame").append(`<div class="moveable1" value=1 inside=0></div> `)
         $("#maingame").append(`<div class="moveable10" value=10 inside=0></div> `)
@@ -324,26 +323,29 @@ function restepositions(){
 $( "#alvo1" ).droppable({
     drop:function(event,ui){
         console.log("drop");
-        gamedates.incaccValues(Number(ui.draggable.attr("value")));
-        console.log(gamedates.getaccValues());
-        operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
-        drop.play();
-        if (gamedates.getaccValues() == gamedates.getOperResult()){
-
-            nextlevel();
-            winLevel.play();
-        }
-        ui.draggable.attr("inside",1)
-    },
-    over: function (event, ui) {
-        if(Number(ui.draggable.attr("inside"))){
-            gamedates.incaccValues((-1)*Number(ui.draggable.attr("value")));
+        if (!stoped){
+            gamedates.incaccValues(Number(ui.draggable.attr("value")));
             console.log(gamedates.getaccValues());
-            drop.play();
+            operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
             if (gamedates.getaccValues() == gamedates.getOperResult()){
                 nextlevel();
                 winLevel.play();
             }
+        }
+        drop.play();
+        ui.draggable.attr("inside",1)
+    },
+    over: function (event, ui) {
+        if(Number(ui.draggable.attr("inside"))){
+            if (!stoped){
+                gamedates.incaccValues((-1)*Number(ui.draggable.attr("value")));
+                console.log(gamedates.getaccValues());
+                if (gamedates.getaccValues() == gamedates.getOperResult()){
+                    nextlevel();
+                    winLevel.play();
+                }
+            }
+            drop.play();
         }
     },
     out: function (event, ui) {
