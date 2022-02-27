@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="assets/img/alpha icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/style2.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <title>AlphaMathcs</title>
+  </head>
+  <body>
+    <header>
+      <section class="logo">
+        <img src="assets/img/cube.jpg" id="icon_cubeE" alt="cube" />
+        <h1>Alphamathics</h1>
+        <img src="assets/img/cube.jpg" id="icon_cubeD" alt="cube" />
+      </section>
+    </header>
+    <main>
+      <section id="initPlay" class="main_container">
+        <img src="assets/img/operators.png" id="icon_operator" alt="operators"/>
+        <input id="playername" class="inputplayer" type="text" placeholder="SEU NOME" />
+        <input id="playertag" class="inputplayer" type="text" placeholder="SEU LEMA" />
+        <button id="bStart" class="botao">JOGAR AGORA!</button>
+        <button id="bTutorial" class="botao">TUTORIAL</button>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-content">
+              <div id="modal-header" class="modal-header">
+                <span class="close">&times;</span>
+                <h2 id="h2Tutorial">TUTORIAL</h2>
+              </div>
+              <div class="modal-body">
+                <video id="videoTutorial" src="./img/Tutorial.mp4" controls="" poster="./img/tutorial.png"></video>
+                <div>
+                  <img src="./img/dance.gif" class="gifvideo" alt="menina dançando">
+                  <img src="./img/dance.gif" class="gifvideo" alt="menina dançando">
+                  <img src="./img/dance.gif" class="gifvideo" alt="menina dançando">
+                  <img src="./img/dance.gif" class="gifvideo" alt="menina dançando">
+                  <img src="./img/dance.gif" class="gifvideo" alt="menina dançando">
+                  <img src="./img/dance.gif" class="gifvideo" alt="menina dançando">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <h3><span>AlphaEdTech&copy;</span></h3>
+              </div>
+            </div>
+      </section>
+      <section id="gameplay">
+          <h2 id="playershowname">titulo</h2>
+          <strong id="playershowtag"></strong>
+          <strong id="playershowdate"></strong>
+          <div id="supermain">
+            <div id="maingame">
+              <div id="showtimer">Timer</div>
+              <button id="reset-btn">LIMPAR</button>
+              <div id="alvo1">
+                <div id="operation">operação</div>
+                <img id="emoji"/>
+              </div>
+            </div>
+            <div id="scores">
+              <h3>MELHORES PONTUACOES</h3>
+              <span class="points">1. 00000000</span>
+              <span class="points">2. 00000000</span>
+              <span class="points">3. 00000000</span>
+              <span class="points">4. 00000000</span>
+              <span class="points">5. 00000000</span>
+              <span class="points">6. 00000000</span>
+              <span class="points">7. 00000000</span>
+              <span class="points">8. 00000000</span>
+              <span class="points">9. 00000000</span>
+              <span class="points">10. 00000000</span>
+            </div>
+          </div>
+          <img id="applause" src="./img/applause.gif" alt="Palmas"/>
+      </section>
+    </main>
+    <footer>
+      <section class="footerinfo">
+        <span><a href="./AlphaMathics.pdf" style="color: transparent;" target="_blanck">Docs </a> AlphaEdTech&copy; <a href="./APIs.html" style="color: transparent;" target="_blanck"> Haks</a></span>
+      </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+  </body>
+</html>
