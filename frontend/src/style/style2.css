@@ -120,6 +120,7 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 30px;
 }
 #icon_operator {
   height: 25vh;
@@ -153,6 +154,7 @@ input{
   height: 90vh;
   width: 90vw;
   background-color: transparent;
+  border-radius: 30px;
 }
 h2, h3{
   font-weight: bold;
@@ -165,9 +167,10 @@ strong{
 #supermain{
   display: flex;
   justify-content: start;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   height: 90%;
+  border-radius: 30px;
 }
 #maingame{
   display: flex;
@@ -175,6 +178,7 @@ strong{
   position:relative;
   width: 80%;
   height: 100% ;
+  border-radius: 30px;
 }
 #scores{
   display: flex;
@@ -188,7 +192,7 @@ strong{
   background-color: var(--orange-bg);
 }
 .moveable1{
-  position: absolute;
+  position:absolute;
   top:5%;
   left: 15%;
   height: 20px;
@@ -199,7 +203,7 @@ strong{
   color: transparent;
 }
 .moveable10{
-  position: absolute;
+  position:absolute;
   top:10%;
   left: 15%;
   height: 120px;
@@ -232,13 +236,14 @@ strong{
   color: transparent;
 }
 #alvo1{
-  position: absolute;
+  /*position: absolute;*/
   border: 1px solid black;
-  height: 90%;
+  height: 100%;
   width: 65%;
   right: 1%;
   top: 5%;
   background-color: var(--blue-bg);
+  border-radius: 30px;
 }
 .points{
   display: flex;
@@ -266,12 +271,14 @@ strong{
   color: var(--blue-ligth);
   font-size: 5vh;
   font-style: italic;
+  border-radius: 30px;
   /*border: 3px solid #000000;*/
 }
 #scores,.points{
   font-family: Dokdo, "Bebas Neue", cursive;
   color: var(--dark-turquoise);
   font-size: 4vh;
+  border-radius: 30px;
 }
 #reset-btn{
   position:absolute;
@@ -366,4 +373,24 @@ strong{
 #emoji{
   width: 60px;
   height: 60px;
+}
+#maingameup{
+  display: flex;
+  flex-direction: row;
+}
+#pieces{
+  display: flex;
+}
+.pieces{
+  width: 20%;
+  min-width: 150px;
+  height: 20%;
+  min-height: 150px;
+  margin: 10px;
+  background-color: var(--lilac-bg);
+  border: 5px solid black;
+  border-radius: 30px;
+}
+#userbox{
+  background-color: var(--blue-bg);
 }

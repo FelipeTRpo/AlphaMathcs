@@ -134,7 +134,7 @@ function updateTime()
 {
     if (stoped) return;
     timeSeg = timecred - Math.floor((+new Date() - timecr) / 1000);
-    showtimer.innerHTML = timeSeg.toString() + " seg";
+    showtimer.innerHTML = timeSeg.toString() + " SEG";
     if (timeSeg==0) {
         stoped = true;
         emoji.src = emojis.crying;
@@ -143,7 +143,7 @@ function updateTime()
 }
 function stargame(){
     if (playername.value == ""){
-        alert("Digite seu nome de jogador");
+        alert("DIGITE SEU NOME DE JOGADOR");
         return false;
     }
     //muda a tela
@@ -292,22 +292,22 @@ bStart.addEventListener('click',stargame);
 
 //cria os blocos arrastaveis
 for(let i=0;i<9;i++){
-    $("#maingame").append(`<div class="moveable1" value=1 inside=0></div> `)
-    $("#maingame").append(`<div class="moveable10" value=10 inside=0></div> `)
-    $("#maingame").append(`<div class="moveable100" value=100 inside=0></div> `)
-    $("#maingame").append(`<div class="moveable1000" value=1000 inside=0></div> `)
+    $("#piece1").append(`<div class="moveable1" value=1 inside=0></div> `)
+    $("#piece10").append(`<div class="moveable10" value=10 inside=0></div> `)
+    $("#piece100").append(`<div class="moveable100" value=100 inside=0></div> `)
+    $("#piece1000").append(`<div class="moveable1000" value=1000 inside=0></div> `)
 }
 $(".moveable1").draggable({
-    containment : "#maingame"
+    containment : "#piece1"
 });
 $(".moveable10").draggable({
-    containment : "#maingame"
+    containment : "#piece10"
 });
 $(".moveable100").draggable({
-    containment : "#maingame"
+    containment : "#piece100"
 });
 $(".moveable1000").draggable({
-    containment : "#maingame"
+    containment : "#piece1000"
 });
 //Botão de reset
 $('#reset-btn').on('click',function(){
