@@ -5,6 +5,7 @@
         <input id="indesc" type="text" class="imputdescription" placeholder="Sua frase de efeito"/><br/>
         <input id="inscore" type="number" class="imputscore" placeholder="pontos"/><br/>
         <input id="inlevel" type="number" class="imputlevel" placeholder="nivel"/><br/>
+        <input id="initime" type="number" class="imputlevel" placeholder="seu tempo acumulado"/><br/>
         <button id="bregister">Register</button><br/><br/>
         <button id="bscores">Scores</button><br/><br/>
         <input id="statusname" type="text" class="imputname" placeholder="Seu Nome"/><br/>
@@ -26,7 +27,8 @@ function sendregister(){
         "name": document.getElementById("inname").value,
         "description": document.getElementById("indesc").value,
         "score": document.getElementById("inscore").value,
-        "level": document.getElementById("inlevel").value
+        "level": document.getElementById("inlevel").value,
+        "timecred": document.getElementById("intime").value
     }
     const fullurl = url + 'register';
     senders.innerHTML = fullurl;
@@ -98,7 +100,8 @@ function sendstatus(){
     "name": "alpha",
     "description": "sou muito bom",
     "score": 100,
-    "level": 10
+    "level": 10,
+    "timecred": 0
 }
 {  "name":"alpha",
     "score": 100 }*/

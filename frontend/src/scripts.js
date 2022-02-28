@@ -219,7 +219,7 @@ function sendregister(){
 }
 //inicia o nivel de jogo
 function initlevel(){
-    playershowdate.innerHTML = `Nivel:${gamedates.getleveluser()} Pontos:${gamedates.getscoreuser()}`;
+    playershowdate.innerHTML = `NIVEL:${gamedates.getleveluser()} PONTOS:${gamedates.getscoreuser()}`;
     gamedates.setOper(sortOP(gamedates.getleveluser(),gamedates.getsublevel()));
     operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
     emoji.src = emojis.thinking;
