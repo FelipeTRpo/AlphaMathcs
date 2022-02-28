@@ -292,22 +292,22 @@ bStart.addEventListener('click',stargame);
 
 //cria os blocos arrastaveis
 for(let i=0;i<9;i++){
-    $("#piece1").append(`<div class="moveable1" value=1 inside=0></div> `)
-    $("#piece10").append(`<div class="moveable10" value=10 inside=0></div> `)
-    $("#piece100").append(`<div class="moveable100" value=100 inside=0></div> `)
-    $("#piece1000").append(`<div class="moveable1000" value=1000 inside=0></div> `)
+    $("#supermain").append(`<div class="moveable1" value=1 inside=0></div> `)
+    $("#supermain").append(`<div class="moveable10" value=10 inside=0></div> `)
+    $("#supermain").append(`<div class="moveable100" value=100 inside=0></div> `)
+    $("#supermain").append(`<div class="moveable1000" value=1000 inside=0></div> `)
 }
 $(".moveable1").draggable({
-    containment : "#piece1"
+    containment : "#supermain"
 });
 $(".moveable10").draggable({
-    containment : "#piece10"
+    containment : "#supermain"
 });
 $(".moveable100").draggable({
-    containment : "#piece100"
+    containment : "#supermain"
 });
 $(".moveable1000").draggable({
-    containment : "#piece1000"
+    containment : "#supermain"
 });
 //Botão de reset
 $('#reset-btn').on('click',function(){
@@ -321,22 +321,22 @@ function restepositions(){
     $('.moveable1000').remove();
     if(!stoped) gamedates.setaccValues(0);
     for(let i=0;i<9;i++){
-        $("#maingame").append(`<div class="moveable1" value=1 inside=0></div> `)
-        $("#maingame").append(`<div class="moveable10" value=10 inside=0></div> `)
-        $("#maingame").append(`<div class="moveable100" value=100 inside=0></div> `)
-        $("#maingame").append(`<div class="moveable1000" value=1000 inside=0></div> `)
+        $("#supermain").append(`<div class="moveable1" value=1 inside=0></div> `)
+        $("#supermain").append(`<div class="moveable10" value=10 inside=0></div> `)
+        $("#supermain").append(`<div class="moveable100" value=100 inside=0></div> `)
+        $("#supermain").append(`<div class="moveable1000" value=1000 inside=0></div> `)
     }
     $(".moveable1").draggable({
-        containment : "#maingame"
+        containment : "#supermain"
     });
     $(".moveable10").draggable({
-        containment : "#maingame"
+        containment : "#supermain"
     });
     $(".moveable100").draggable({
-        containment : "#maingame"
+        containment : "#supermain"
     });
     $(".moveable1000").draggable({
-        containment : "#maingame"
+        containment : "#supermain"
     });
     operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
 }
