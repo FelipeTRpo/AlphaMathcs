@@ -150,35 +150,38 @@ input{
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  padding: 10px;
-  height: 90vh;
-  width: 90vw;
+  height: 100%;
+  width: 98%;
   background-color: transparent;
-  border-radius: 30px;
 }
 h2, h3{
   font-weight: bold;
   font-size: large;
   text-align: center;
 }
-strong{
-  font-weight: bold;
-}
 #supermain{
   display: flex;
   justify-content: start;
   flex-direction: column;
   width: 100%;
-  height: 90%;
-  border-radius: 30px;
+  height: 100%;
+}
+#maingameup{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 #maingame{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position:relative;
-  width: 80%;
+  width: 85vw;
+  min-width: 600px;
   height: 100% ;
   border-radius: 30px;
+  margin: 10px 10px 0 10px;
+  border: 5px solid black;
+  background-color: var(--blue-bg);
 }
 #scores{
   display: flex;
@@ -186,15 +189,18 @@ strong{
   flex-direction: column;
   justify-content: space-between;
   width: 20%;
+  min-width: 150px;
   height: 100% ;
   border: 2px solid black;
   padding: 10px;
   background-color: var(--orange-bg);
+  margin: 10px 10px 0 10px;
+  border: 5px solid black;
 }
 .moveable1{
   position:absolute;
-  top:5%;
-  left: 15%;
+  /*top:5%;
+  left: 15%;*/
   height: 20px;
   width: 20px;
   background-image: url("../img/unidade.svg");
@@ -204,8 +210,8 @@ strong{
 }
 .moveable10{
   position:absolute;
-  top:10%;
-  left: 15%;
+  /*top:10%;
+  left: 15%;*/
   height: 120px;
   width: 25px;
   background-image: url("../img/dezena.svg");
@@ -215,8 +221,8 @@ strong{
 }
 .moveable100{
   position: absolute;
-  top:35%;
-  left: 15%;
+  /*top:35%;
+  left: 15%;*/
   height: 120px;
   width: 160px;
   background-image: url("../img/centena.svg");
@@ -226,8 +232,8 @@ strong{
 }
 .moveable1000{
   position: absolute;
-  top:60%;
-  left: 15%;
+  /*top:60%;
+  left: 15%;*/
   height: 150px;
   width: 180px;
   background-image: url("../img/milhar.svg");
@@ -236,14 +242,8 @@ strong{
   color: transparent;
 }
 #alvo1{
-  /*position: absolute;*/
-  border: 1px solid black;
   height: 100%;
-  width: 65%;
-  right: 1%;
-  top: 5%;
-  background-color: var(--blue-bg);
-  border-radius: 30px;
+  width: 100%;
 }
 .points{
   display: flex;
@@ -269,7 +269,7 @@ strong{
   margin: 0;
   font-family: Dokdo, "Bebas Neue", cursive;
   color: var(--blue-ligth);
-  font-size: 5vh;
+  font-size: 4vh;
   font-style: italic;
   border-radius: 30px;
   /*border: 3px solid #000000;*/
@@ -374,10 +374,6 @@ strong{
   width: 60px;
   height: 60px;
 }
-#maingameup{
-  display: flex;
-  flex-direction: row;
-}
 #pieces{
   display: flex;
 }
@@ -390,6 +386,7 @@ strong{
   background-color: var(--lilac-bg);
   border: 5px solid black;
   border-radius: 30px;
+  text-align: center;
 }
 #userbox{
   background-color: var(--blue-bg);
