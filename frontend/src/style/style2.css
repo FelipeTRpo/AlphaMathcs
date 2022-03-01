@@ -50,9 +50,11 @@ main {
 }
 
 header {
-  width:max-content;
+  width: 35vw;
+  min-width: 550px;
   border-radius: 50ch;
   height: auto;
+  min-height: 80px;
   display: flex;
   align-items: center;
   background-color: var(--beige-bg);
@@ -66,10 +68,13 @@ header {
   );*/
   text-shadow: var(--shadow-text);
   box-shadow: var(--shadow-box);
+  border: 8px solid black;
+  margin-top: .5vw;
 }
 
 .logo {
-  padding-top: 3px;
+  padding-top: .8vw;
+  padding-bottom: .8vw;
 }
 
 .logo > h1 {
@@ -78,11 +83,14 @@ header {
   font-family: Grobold, Dokdo, "Bebas Neue", cursive;
   font-size: 3em;
   text-align: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
   color: var(--blue-ligth);
   -webkit-text-stroke: 2px #000;
 }
 #icon_cubeD, #icon_cubeE{
   width: 4%;
+  min-width: 35px;
 }
 footer {
   position: absolute;
@@ -210,41 +218,41 @@ h2, h3{
   top:20%;
   left: 69%;
   height: 20px;
-  width: 20px;
-  background-image: url("../img/unidade.svg");
+  width: 15px;
+  background-image: url("../img/newUnit.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
 }
 .moveable10{
   position:absolute;
-  top:12%;
-  left: 49%;
+  top:20%;
+  left: 47%;
   height: 120px;
-  width: 25px;
-  background-image: url("../img/dezena.svg");
+  width: 110px;
+  background-image: url("../img/newTen.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
 }
 .moveable100{
   position: absolute;
-  top:12%;
-  left: 26%;
+  top:15.5%;
+  left: 27.5%;
   height: 120px;
-  width: 160px;
-  background-image: url("../img/centena.svg");
+  width: 100px;
+  background-image: url("../img/newHundred.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
 }
 .moveable1000{
   position: absolute;
-  top:12%;
-  left: 5%;
+  top:14%;
+  left: 7%;
   height: 150px;
-  width: 180px;
-  background-image: url("../img/milhar.svg");
+  width: 125px;
+  background-image: url("../img/newThousand.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
@@ -317,7 +325,7 @@ h2, h3{
   font-family: Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
   font-size: 25px;
-  padding: 1%;
+  padding: 5px 10px ;
 }
 /*modal botao tutorial*/
 .modal {
