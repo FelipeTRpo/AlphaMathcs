@@ -35,6 +35,10 @@
   font-family: Gorditas;
   src: url("./Gorditas-Regular.ttf") format("truetype"), url("./Gorditas-Bold.ttf") format("truetype");
 }
+@font-face {
+  font-family: Modak;
+  src: url("./Modak-Regular.ttf") format("truetype");
+}
 body,html {
   position: fixed;
   width: 100%;
@@ -308,7 +312,7 @@ h2, h3{
 }
 #playershowname, #playershowtag{
   margin: 0;
-  font-family: Gorditas, Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
   color: var(--yellow-ligth);
   font-size: 4vh;
   font-weight: bold;
