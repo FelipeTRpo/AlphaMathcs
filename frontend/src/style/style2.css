@@ -9,7 +9,8 @@
   --murrey-bg: #9E1414;
   --green-ligth: #9ED5A4;
   --pink-ligth: #DDA1A1;
-
+  --yellow-ligth:#F5EA14;
+  
   --dark-turquoise: #172b3e;
   --dark-blue: #02254b;
   --medium-yellow: #9c8321;
@@ -101,7 +102,7 @@ footer {
 span {
   font-family: Grobold, Dokdo,"Bebas Neue", cursive;
   -webkit-text-stroke: 2px #000;
-  color: var(--medium-yellow);
+  color: var(--yellow-ligth);
 }
 
 /*botoes tela inicial*/
@@ -251,6 +252,25 @@ h2, h3{
 #alvo1{
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#alvo1>:first-child{
+  height: 100%;
+  width:auto;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#alvo1>:last-child{
+  width:min-content;
+  padding: 1%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .points{
   display: flex;
@@ -268,15 +288,16 @@ h2, h3{
 /* fontes e cores de fontes em alguns lugares da pagina */
 #operation{
   margin: 1%;
+  width: 100%;
   font-family: "Bebas Neue", cursive;
-  color: var(--dark-turquoise);
+  color: var(--yellow-ligth);
   font-size: 10vh;
   -webkit-text-stroke: 2px #000;
 }
 #playershowname,#playershowtag,#playershowdate{
   margin: 0;
   font-family: Grobold, Dokdo, "Bebas Neue", cursive;
-  color: var(--blue-ligth);
+  color: var(--yellow-ligth);
   font-size: 4vh;
   font-style: italic;
   border-radius: 30px;
@@ -285,16 +306,14 @@ h2, h3{
 #scores,.points{
   font-family: Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
-  color: var(--dark-turquoise);
+  color: var(--yellow-ligth);
   font-size: 3vh;
   border-radius: 30px;
 }
 #reset-btn{
-  position:absolute;
-  bottom: 5%;
-  left: 0%;
-  color: var(--blue-ligth);
-  background-color: var(--light-green-2);
+  width: min-content;
+  color: var(--murrey-bg);
+  background-color: var(--pink-ligth);
   font-family: Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
   font-size: 25px;
@@ -382,8 +401,21 @@ h2, h3{
   width: 50%;
 }
 #emoji{
-  width: 60px;
-  height: 60px;
+  width: 15vw;
+}
+#timerdiv{
+  border-radius: 30px;
+  border: 5px solid black;
+  background-color: var(--yellow-ligth);
+  padding: 10px;
+  min-width: 10vw;
+  text-align: end;
+}
+#showtimer{
+  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  color: var(--green-dark);
+  -webkit-text-stroke: 1px #000;
+  font-size: 25px;
 }
 #pieces{
   display: flex;
