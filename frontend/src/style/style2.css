@@ -31,6 +31,10 @@
   font-family: Grobold;
   src: url("./GROBOLD.ttf") format("truetype");
 }
+@font-face {
+  font-family: Gorditas;
+  src: url("./Gorditas-Regular.ttf") format("truetype"), url("./Gorditas-Bold.ttf") format("truetype");
+}
 body,html {
   position: fixed;
   width: 100%;
@@ -302,15 +306,26 @@ h2, h3{
   font-size: 10vh;
   -webkit-text-stroke: 2px #000;
 }
-#playershowname,#playershowtag,#playershowdate{
+#playershowname, #playershowtag{
   margin: 0;
-  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Gorditas, Grobold, Dokdo, "Bebas Neue", cursive;
+  color: var(--yellow-ligth);
+  font-size: 4vh;
+  font-weight: bold;
+  border-radius: 30px;
+  -webkit-text-stroke: 1px #000;
+}
+
+#playershowdate{
+  margin: 0;
+  font-family: Gorditas, Grobold, Dokdo, "Bebas Neue", cursive;
   color: var(--yellow-ligth);
   font-size: 4vh;
   font-style: italic;
   border-radius: 30px;
   -webkit-text-stroke: 1px #000;
 }
+
 #scores,.points{
   font-family: Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
@@ -439,6 +454,15 @@ h2, h3{
   border-radius: 30px;
   text-align: center;
 }
+
+.piecesBig{
+  margin-top: -11px;
+  width: 20%;
+  min-width: 150px;
+  height: 20%;
+  min-height: 170px;
+}
+
 #userbox{
   background-color: var(--blue-bg);
 }
