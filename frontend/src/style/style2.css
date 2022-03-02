@@ -458,3 +458,49 @@ a{
   -webkit-text-stroke: 0;
   color: transparent;
 }
+
+#music-control{
+  
+  border: #000 solid 5px;
+  border-radius: 12px;
+  min-width: 145px;
+  min-height: 45px;
+  height: 6%;
+  width: 12%;
+  background-color: var(--beige-bg);
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.audiobtn{
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+}
+#mute-audio{
+  background-image: url("../img/mute-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+#down-audio{
+  background-image: url("../img/down-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+#up-audio{
+  background-image: url("../img/up-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+#max-audio{
+  background-image: url("../img/max-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
