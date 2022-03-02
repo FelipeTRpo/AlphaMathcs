@@ -156,6 +156,8 @@ function stargame(){
     gameplay.style.display='flex';
     //instancia o jogador e inicia o jogo
     sendstatus(playername.value);
+    //play automatico na musica de fundo
+    document.getElementById('background-music').play()
 }
 //quando é um novo jogador
 function playerinit(){
