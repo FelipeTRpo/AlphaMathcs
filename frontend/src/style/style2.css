@@ -460,7 +460,6 @@ a{
 }
 
 #music-control{
-  
   border: #000 solid 5px;
   border-radius: 12px;
   min-width: 145px;
@@ -479,6 +478,12 @@ a{
   background-color: transparent;
   width: 30px;
   height: 30px;
+}
+.audiobtn:hover{
+  cursor: pointer;
+}
+.audiobtn:active{
+  filter: invert(98%) sepia(2%) saturate(9%) hue-rotate(61deg) brightness(103%) contrast(103%);
 }
 #mute-audio{
   background-image: url("../img/mute-vol.svg");

@@ -156,8 +156,9 @@ function stargame(){
     gameplay.style.display='flex';
     //instancia o jogador e inicia o jogo
     sendstatus(playername.value);
-    //play automatico na musica de fundo
+    //Informaçoes iniciais do audio de fundo
     document.getElementById('background-music').play()
+    document.getElementById("background-music").volume = 0.5;
 }
 //quando é um novo jogador
 function playerinit(){
@@ -660,3 +661,21 @@ for (let i=0 ; i<moveabl1.length; i++){
     moveabl100[i].addEventListener('dblclick',movall100);
     moveabl1000[i].addEventListener('dblclick',movall1000);
 }
+
+//controle de volume
+$('#mute-audio').on('click',function(){
+    document.getElementById("background-music").volume = 0;
+});
+$('#down-audio').on('click',function(){
+    if(document.getElementById("background-music").volume>0.1){
+        document.getElementById("background-music").volume -= 0.1;
+    }
+});
+$('#up-audio').on('click',function(){
+    if(document.getElementById("background-music").volume<0.9){
+        document.getElementById("background-music").volume += 0.1;
+    }
+});
+$('#max-audio').on('click',function(){
+    document.getElementById("background-music").volume = 1;
+});
