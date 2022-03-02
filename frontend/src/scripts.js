@@ -193,7 +193,7 @@ function sendscores(){
         console.log('Fetch Error :-S', err);
     });  
 }
-//envia requicisão para salvar os dados no servidor
+//envia requisição para salvar os dados no servidor
 function sendregister(){
     const fullurl = url + 'register';
     console.log(fullurl);
@@ -258,7 +258,7 @@ function nextlevel(){
         clearTimeout(interval);
     },5000);//comemoração de 5 segundos antes de ir para o proximo nivel 
 }
-//envia requicisão dos dados salvos do jogador
+//envia requisição dos dados salvos do jogador
 function sendstatus(name){
     const fullurl = url + 'status?name=' + name;
     fetch(fullurl).then(
@@ -318,7 +318,7 @@ $(".moveable1000").draggable({
 $('#reset-btn').on('click',function(){
     restepositions();
 })
-//função para rsetar a posição das peças
+//função para resetar a posição das peças
 function restepositions(){
     $('.moveable1').remove();
     $('.moveable10').remove();
