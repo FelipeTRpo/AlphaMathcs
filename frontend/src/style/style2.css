@@ -44,19 +44,17 @@ body,html {
   width: 100%;
   height: 100%;
   background-color: var(--purple-bg);
-  font-family: Dokdo;
+  font-family: Modak, Grobold, Gorditas, Dokdo, "Bebas Neue", cursive;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-
 main {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 header {
   width: 35vw;
   min-width: 550px;
@@ -79,16 +77,14 @@ header {
   border: 8px solid black;
   margin-top: .5vw;
 }
-
 .logo {
   padding-top: .8vw;
   padding-bottom: .8vw;
 }
-
 .logo > h1 {
   position: relative;
   top: 2px;
-  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
   font-size: 3em;
   text-align: center;
   padding-left: 2vw;
@@ -107,6 +103,7 @@ footer {
   height: auto;
   background: var(--dark-blue);
   border-radius: 1px;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
 }
 .footerinfo {
   display: flex;
@@ -116,13 +113,11 @@ footer {
   margin-top: 4px;
 }
 span {
-  font-family: Grobold, Dokdo,"Bebas Neue", cursive;
+  font-family: Modak, Grobold, Dokdo,"Bebas Neue", cursive;
   -webkit-text-stroke: 2px #000;
   color: var(--yellow-ligth);
 }
-
 /*botoes tela inicial*/
-
 #bStart,#bTutorial{
   background: #4d9b4d;
   color: white;
@@ -131,13 +126,12 @@ span {
   border-color: #4d9b4d;
   height: 15%;
   width: 100%;
-  font: bold 1.4em Grobold, Dokdo, arial, sans-serif, "Bebas Neue", cursive;
+  font: bold 1.4em Modak, Grobold, Dokdo, arial, sans-serif, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
 }
 #bTutorial:hover, #bStart:hover{
   border-color: white;
 }
-
 .main_container {
   display: flex;
   flex-direction: column;
@@ -149,13 +143,12 @@ span {
   height: 25vh;
   margin-top: 5%;
 }
-
 button {
   margin-top: 10%;
   color: var(--blue-bg);
   padding: 3%;
   border-radius: 10px;
-  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Modak, Grobold, Gorditas, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
 }
 .logo {
@@ -177,6 +170,7 @@ input{
   height: 100%;
   width: 98%;
   background-color: transparent;
+  overflow:auto;
 }
 h2, h3{
   font-weight: bold;
@@ -194,6 +188,7 @@ h2, h3{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 50vh;
 }
 #maingame{
   display: flex;
@@ -201,9 +196,8 @@ h2, h3{
   position:relative;
   width: 85vw;
   min-width: 600px;
-  height: 60vh;
   border-radius: 30px;
-  margin: 10px 10px 0 10px;
+  margin: 1vh 10px 0 10px;
   border: 5px solid black;
   background-color: var(--blue-bg);
 }
@@ -214,7 +208,6 @@ h2, h3{
   justify-content: space-between;
   width: 20%;
   min-width: 150px;
-  height: 60vh;
   border: 2px solid black;
   padding: 10px;
   background-color: var(--orange-bg);
@@ -223,7 +216,7 @@ h2, h3{
 }
 .moveable1{
   position:absolute;
-  top:20%;
+  top:25%;
   left: 69%;
   height: 20px;
   width: 15px;
@@ -234,7 +227,7 @@ h2, h3{
 }
 .moveable10{
   position:absolute;
-  top:20%;
+  top:25%;
   left: 47%;
   height: 120px;
   width: 110px;
@@ -245,7 +238,7 @@ h2, h3{
 }
 .moveable100{
   position: absolute;
-  top:15.5%;
+  top:20%;
   left: 27.5%;
   height: 120px;
   width: 100px;
@@ -256,7 +249,7 @@ h2, h3{
 }
 .moveable1000{
   position: absolute;
-  top:14%;
+  top:20%;
   left: 7%;
   height: 150px;
   width: 125px;
@@ -319,17 +312,15 @@ h2, h3{
   border-radius: 30px;
   -webkit-text-stroke: 1px #000;
 }
-
 #playershowdate{
   margin: 0;
-  font-family: Gorditas, Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Grobold, Modak, Gorditas, Dokdo, "Bebas Neue", cursive;
   color: var(--yellow-ligth);
   font-size: 4vh;
   font-style: italic;
   border-radius: 30px;
   -webkit-text-stroke: 1px #000;
 }
-
 #scores,.points{
   font-family: Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
@@ -341,7 +332,7 @@ h2, h3{
   width: min-content;
   color: var(--murrey-bg);
   background-color: var(--pink-ligth);
-  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
   font-size: 25px;
   padding: 5px 10px ;
@@ -388,7 +379,7 @@ h2, h3{
 #h2Tutorial{
   position: relative;
   top: 4px;
-  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 2px #000;
   font-size: 3em;
   text-align: center;
@@ -439,7 +430,7 @@ h2, h3{
   text-align: end;
 }
 #showtimer{
-  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  font-family: Grobold, Modak, Dokdo, "Bebas Neue", cursive;
   color: var(--green-dark);
   -webkit-text-stroke: 1px #000;
   font-size: 25px;
@@ -449,24 +440,23 @@ h2, h3{
 }
 .pieces{
   width: 20%;
-  min-width: 150px;
-  height: 20%;
-  min-height: 150px;
-  margin: 10px;
+  min-width: 100px;
+  min-height: 160px;
+  margin: 1vw;
   background-color: var(--lilac-bg);
   border: 5px solid black;
   border-radius: 30px;
   text-align: center;
+  font-family: Modak, Grobold, Modak, Dokdo, "Bebas Neue", cursive;
+  font-size: x-large;
 }
-
 .piecesBig{
-  margin-top: -11px;
+  /*margin-top: -11px;
   width: 20%;
   min-width: 150px;
   height: 20%;
-  min-height: 170px;
+  min-height: 170px;*/
 }
-
 #userbox{
   background-color: var(--blue-bg);
 }

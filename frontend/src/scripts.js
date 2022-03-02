@@ -134,7 +134,12 @@ function updateTime()
 {
     if (stoped) return;
     timeSeg = timecred - Math.floor((+new Date() - timecr) / 1000);
-    showtimer.innerHTML = timeSeg.toString() + " SEG";
+    showtimer.innerHTML = Math.floor(timeSeg/60) +" : "+ timeSeg%60;//timeSeg.toString() + " SEG";
+    if(timeSeg < 15){
+        showtimer.style.color = 'red';
+    }else{
+        showtimer.style.color = 'var(--green-dark)';
+    }
     if (timeSeg==0) {
         stoped = true;
         emoji.src = emojis.crying;
