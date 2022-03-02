@@ -129,7 +129,7 @@ span {
   font: bold 1.4em Modak, Grobold, Dokdo, arial, sans-serif, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
 }
-#bTutorial:hover, #bStart:hover{
+#bTutorial:hover, #bStart:hover, #reset-btn:hover {
   border-color: white;
 }
 .main_container {
@@ -239,7 +239,7 @@ h2, h3{
 }
 .moveable100{
   position: absolute;
-  top:20%;
+  top: 20%;
   left: 27.5%;
   height: 120px;
   width: 100px;
@@ -336,7 +336,7 @@ h2, h3{
   font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
   -webkit-text-stroke: 1px #000;
   font-size: 25px;
-  padding: 5px 10px ;
+  padding: 2px 15px;
 }
 /*modal botao tutorial*/
 .modal {
