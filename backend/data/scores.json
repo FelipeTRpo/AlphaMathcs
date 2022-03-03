@@ -1,1 +1,10 @@
-[{"name":"alpha","score":1000},{"name":"kenji","score":540},{"name":"coisador","score":420},{"name":"bola","score":300},{"name":"sonic","score":260},{"name":"lalala","score":240},{"name":"mario","score":150},{"name":"stenio","score":120},{"name":"Gu","score":120},{"name":"eu","score":120}]
+[{"name":"alpha","score":1000},
+    {"name":"kenji","score":540},
+    {"name":"mario","score":390},
+    {"name":"sonic","score":380},
+    {"name":"alex kid","score":270},
+    {"name":"pacman","score":180},
+    {"name":"bomberman","score":130},
+    {"name":"link","score":90},
+    {"name":"pitfall","score":70},
+    {"name":"ash","score":40}]
