@@ -1,4 +1,17 @@
+/*constantes - cores e sombras*/
 :root {
+  --purple-bg: #6448D4;
+  --beige-bg: #D6B45E;
+  --blue-ligth:#25F5DC;
+  --blue-bg: #317CF5;
+  --orange-bg: #F57E49;
+  --lilac-bg: #A89BD9;
+  --green-dark: #1F8E2B;
+  --murrey-bg: #9E1414;
+  --green-ligth: #9ED5A4;
+  --pink-ligth: #DDA1A1;
+  --yellow-ligth:#F5EA14;
+  
   --dark-turquoise: #172b3e;
   --dark-blue: #02254b;
   --medium-yellow: #9c8321;
@@ -11,55 +24,61 @@
   --shadow-text: 2px 4px 3px rgba(0, 0, 0, 0.3);
   --shadow-box: 0 3px 10px rgb(0 0 0 / 0.2);
 }
-
-body,
-html {
+/*fontes de textos*/
+@font-face {
+  font-family: Dokdo;
+  src: url("./Dokdo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Grobold;
+  src: url("./GROBOLD.ttf") format("truetype");
+}
+@font-face {
+  font-family: Gorditas;
+  src: url("./Gorditas-Regular.ttf") format("truetype"), url("./Gorditas-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: Modak;
+  src: url("./Modak-Regular.ttf") format("truetype");
+}
+/*blocos basicos*/
+body,html {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: var(--dark-turquoise);
+  background-color: var(--purple-bg);
+  font-family: Modak, Grobold, Gorditas, Dokdo, "Bebas Neue", cursive;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-
 main {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 header {
-  width: 100%;
+  width: 35vw;
+  min-width: 550px;
+  border-radius: 50ch;
   height: auto;
-  /*min-height: 70px;*/
+  min-height: 80px;
   display: flex;
   align-items: center;
-  background-image: linear-gradient(
+  background-color: var(--beige-bg);
+  /*background-image: linear-gradient(
     to bottom,
     var(--light-green-1),
     var(--light-green-2),
     var(--medium-green),
     var(--dark-green),
     var(--dark-green-2)
-  );
+  );*/
   text-shadow: var(--shadow-text);
   box-shadow: var(--shadow-box);
-}
-
-.logo {
-  padding-top: 3px;
-}
-
-.logo > h1 {
-  position: relative;
-  top: 4px;
-  font-family: "Bebas Neue", cursive;
-  font-size: 2em;
-  text-align: center;
-  color: var(--dark-turquoise);
-}
-#icon_cube {
-  width: 4%;
-  /*height: 60px;*/
+  border: 8px solid black;
+  margin-top: .5vw;
 }
 footer {
   position: absolute;
@@ -68,56 +87,20 @@ footer {
   height: auto;
   background: var(--dark-blue);
   border-radius: 1px;
-}
-.footerinfo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4px;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
 }
 span {
-  font-family: "Bebas Neue", cursive;
-  color: var(--medium-yellow);
+  font-family: Modak, Grobold, Dokdo,"Bebas Neue", cursive;
+  -webkit-text-stroke: 2px #000;
+  color: var(--yellow-ligth);
 }
-
-/*botoes tela inicial*/
-
-#bStart,#bTutorial{
-  background: #4d9b4d;
-  color: white;
-  border-style: outset;
-  border-color: #4d9b4d;
-  height: 15%;
-  width: 100%;
-  font: bold 15px arial, sans-serif;
-  text-shadow:none;
-}
-#bTutorial:hover, #bStart:hover{
-  border-color: white;
-}
-
-.main_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-#icon_operator {
-  height: 25vh;
-  margin-top: 5%;
-}
-
 button {
   margin-top: 10%;
-  color: var(--dark-turquoise);
+  color: var(--blue-bg);
   padding: 3%;
   border-radius: 10px;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: Modak, Grobold, Gorditas, Dokdo, "Bebas Neue", cursive;
+  -webkit-text-stroke: 1px #000;
 }
 input{
   margin-top: 10%;
@@ -125,43 +108,116 @@ input{
   padding: 3%;
   background-color: #ddc;
 }
+/*blocos do header*/
+.logo {
+  padding-top: .8vw;
+  padding-bottom: .8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo > h1 {
+  position: relative;
+  top: 2px;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
+  font-size: 3em;
+  text-align: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  color: var(--blue-ligth);
+  -webkit-text-stroke: 2px #000;
+}
+#icon_cubeD, #icon_cubeE{
+  width: 4%;
+  min-width: 35px;
+}
+/*blocos do footer*/
+.footerinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+/*conteiner da tela inicial*/
+.main_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+/*botoes tela inicial*/
+#bStart,#bTutorial{
+  background: #4d9b4d;
+  color: white;
+  color: var(--blue-ligth);
+  border-style: outset;
+  border-color: #4d9b4d;
+  height: 15%;
+  width: 100%;
+  font: bold 1.4em Modak, Grobold, Dokdo, arial, sans-serif, "Bebas Neue", cursive;
+  -webkit-text-stroke: 1px #000;
+}
+#bTutorial:hover, #bStart:hover, #reset-btn:hover {
+  border-color: white;
+}
+/*imagem tela inicial*/
+#icon_operator {
+  height: 25vh;
+  margin-top: 5%;
+}
+/*conteiner da tela jogavel*/
 #gameplay{
   display: none;
-  /*display: flex;*/
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  padding: 10px;
-  height: 90vh;
-  width: 90vw;
-  background-color: var(--dark-turquoise);
+  height: 100%;
+  width: 98%;
+  background-color: transparent;
+  overflow:auto;
 }
+/*titulos dos sub-blocos*/
 h2, h3{
   font-weight: bold;
   font-size: large;
   text-align: center;
 }
-strong{
-  font-weight: bold;
-}
-#playershowtag{
-  font-style: italic;
-}
+/*bloco que contem blocos visiveis*/
 #supermain{
   display: flex;
   justify-content: start;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  height: 90%;
-  /*border: 2px solid red;*/
+  height: 100%;
 }
+/*contem o alvo de arrasto das peças e scores*/
+#maingameup{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50vh;
+}
+/*contem o alvo de arrasto das peças*/
 #maingame{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position:relative;
-  width: 80%;
-  height: 100% ;
-  /*border: 2px solid blue;*/
+  width: 85vw;
+  min-width: 600px;
+  border-radius: 30px;
+  margin: 1vh 10px 0 10px;
+  border: 5px solid black;
+  background-color: var(--blue-bg);
+}
+/*contem os scores*/
+#scores,.points{
+  font-family: Grobold, Dokdo, "Bebas Neue", cursive;
+  -webkit-text-stroke: 1px #000;
+  color: var(--yellow-ligth);
+  font-size: 3vh;
+  border-radius: 30px;
 }
 #scores{
   display: flex;
@@ -169,79 +225,86 @@ strong{
   flex-direction: column;
   justify-content: space-between;
   width: 20%;
-  height: 100% ;
+  min-width: 150px;
   border: 2px solid black;
   padding: 10px;
-  background-color: var(--dark-green-2);
+  background-color: var(--orange-bg);
+  margin: 10px 10px 0 10px;
+  border: 5px solid black;
 }
+/*scores*/
+.points{
+  display: flex;
+  justify-content: space-between;
+}
+/*alvo de arrasto*/
+#alvo1{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#alvo1>:first-child{
+  height: 100%;
+  width:auto;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#alvo1>:last-child{
+  width:min-content;
+  padding: 1%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* peças moveis */
 .moveable1{
-  position: absolute;
-  /*border: 2px solid black;*/
-  top:5%;
-  left: 15%;
+  position:absolute;
+  top:25%;
+  left: 69%;
   height: 20px;
-  width: 20px;
-  background-image: url("../img/unidade.svg");
+  width: 15px;
+  background-image: url("../img/newUnit.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
 }
-
 .moveable10{
-  position: absolute;
-  /*border: 2px solid black;*/
-  top:10%;
-  left: 15%;
-  /*top: 50px;
-  left: 200px;*/
-  height: 120px;
-  width: 25px;
-  background-image: url("../img/dezena.svg");
+  position:absolute;
+  top:25%;
+  left: 47%;
+  height: 20px;
+  width: 110px;
+  background-image: url("../img/newTen.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
 }
 .moveable100{
   position: absolute;
-  /*border: 2px solid black;*/
-  top:35%;
-  left: 15%;
-  /*top: 200px;
-  left: 50px;*/
-  height: 120px;
-  width: 160px;
-  background-image: url("../img/centena.svg");
+  top: 20%;
+  left: 27.5%;
+  height: 100px;
+  width: 100px;
+  background-image: url("../img/newHundred.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
 }
 .moveable1000{
   position: absolute;
-  /*border: 2px solid black;*/
-  top:60%;
-  left: 15%;
-  /*top: 200px;
-  left: 200px;*/
-  height: 150px;
-  width: 180px;
-  background-image: url("../img/milhar.svg");
+  top:20%;
+  left: 7%;
+  height: 130px;
+  width: 125px;
+  background-image: url("../img/newThousand.svg");
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
-}
-
-#alvo1{
-  position: absolute;
-  border: 1px solid black;
-  height: 90%;
-  width: 65%;
-  right: 1%;
-  top: 5%;
-  background-color: var(--dark-green-2);
-}
-.points{
-  display: flex;
-  justify-content: space-between;
 }
 .moveable1,.moveable10,.moveable100,.moveable1000{
   max-width: 10vw;
@@ -252,51 +315,110 @@ strong{
 .moveable1:active,.moveable10:active,.moveable100:active,.moveable1000:active{
   cursor: grabbing;
 }
-/* fontes e cores de fontes em alguns lugares da pagina */
+/*operação/desafio a ser resolvido*/
 #operation{
   margin: 1%;
+  width: 100%;
   font-family: "Bebas Neue", cursive;
-  color: var(--dark-turquoise);
+  color: var(--yellow-ligth);
   font-size: 10vh;
+  -webkit-text-stroke: 2px #000;
 }
-
-#playershowname,#playershowtag,#playershowdate{
+/*dados do jogador*/
+#playershowname, #playershowtag{
   margin: 0;
-  font-family: "Bebas Neue", cursive;
-  color: var(--light-green-2);
-  font-size: 5vh;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
+  color: var(--yellow-ligth);
+  font-size: 4vh;
+  font-weight: bold;
+  border-radius: 30px;
+  -webkit-text-stroke: 1px #000;
+}
+#playershowdate{
+  margin: 0;
+  font-family: Grobold, Modak, Gorditas, Dokdo, "Bebas Neue", cursive;
+  color: var(--yellow-ligth);
+  font-size: 4vh;
+  font-style: italic;
+  border-radius: 30px;
+  -webkit-text-stroke: 1px #000;
+}
+/*botão de limpar alvo voltando as peças para pontos originais*/
+#reset-btn{
+  width: min-content;
+  color: var(--murrey-bg);
+  background-color: var(--pink-ligth);
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
+  -webkit-text-stroke: 1px #000;
+  font-size: 25px;
+  padding: 2px 15px;
+}
+/*animação de aplausos*/
+#applause{
+  display:none;
+  position:absolute;
+  margin: auto;
+  width: 50%;
+}
+/*icone de emoções*/
+#emoji{
+  width: 15vw;
+}
+/*bloco de tempo*/
+#timerdiv{
+  border-radius: 30px;
+  border: 5px solid black;
+  background-color: var(--yellow-ligth);
+  padding: 10px;
+  min-width: 10vw;
+  text-align: end;
+}
+/*mostrador do tempo*/
+#showtimer{
+  font-family: Grobold, Modak, Dokdo, "Bebas Neue", cursive;
+  color: var(--green-dark);
+  -webkit-text-stroke: 1px #000;
+  font-size: 25px;
+}
+/*blocos que contem as peças inicialmente*/
+#pieces{
+  display: flex;
+}
+.pieces{
+  width: 20%;
+  min-width: 100px;
+  min-height: 180px;
+  margin: 1vw;
+  background-color: var(--lilac-bg);
+  border: 5px solid black;
+  border-radius: 30px;
+  text-align: center;
+  font-family: Modak, Grobold, Modak, Dokdo, "Bebas Neue", cursive;
+  font-size: x-large;
+}
+/*bloco com os dados do usuario*/
+#userbox{
+  background-color: var(--blue-bg);
+}
+/*links camuflados*/
+a{
+  -webkit-text-stroke: 0;
+  color: transparent;
 }
 
-#scores,.points{
-  font-family: "Bebas Neue", cursive;
-  color: var(--dark-turquoise);
-  font-size: 4vh;
-}
-#reset-btn{
-  position:absolute;
-  bottom: 5%;
-  left: 0%;
-  color: var(--dark-turquoise);
-  background-color: var(--light-green-2);
-  font-family: "Bebas Neue", cursive;
-  font-size: 25px;
-  padding: 1%;
-}
-/*modal botao tutorial*/
+/*bloco modal do tutorial*/
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; /* invisivel por padrão */
+  position: fixed;
+  z-index: 1; /* inicialmente acima */
   padding-top: 4%;
   left: auto;
   top: 0;
-  overflow: auto; /* Enable scroll if needed */
+  overflow: auto; /* ativa rolagem quando necessario */
 }
-
-/* Modal Content */
 .modal-content {
   position: relative;
-  background-color: #4a1;
+  background-color: var(--blue-bg);
   margin: auto;
   padding: 0;
   border: 1px solid #888;
@@ -309,62 +431,108 @@ strong{
   animation-name: animatetop;
   animation-duration: 0.4s
 }
-#videoTutorial{
-  width: 100vw;
-  max-width: 800px;
-  max-height: 600px;
+/*cabeçalho do modal*/
+.modal-header {
+  background-color: var(--blue-bg);
+  color: white;
 }
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
+/*titulo do tutorial*/
 #h2Tutorial{
   position: relative;
   top: 4px;
-  font-family: "Bebas Neue", cursive;
+  font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
+  -webkit-text-stroke: 2px #000;
   font-size: 3em;
   text-align: center;
-  color: var(--dark-turquoise);
+  color: var(--blue-ligth);
 }
+/*simbolo de fechar*/
 .close {
   color: black;
   float: right;
   font-size: 3em;
-  font-weight: bold;
+  -webkit-text-stroke: 0 #000;
 }
 .close:hover,.close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
-.modal-header {
-  background-color: #5cb85c;
-  color: white;
-}
+/*corpo do modal*/
 .modal-body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+/*player de video*/
+#videoTutorial{
+  width: 100vw;
+  max-width: 800px;
+  max-height: 600px;
+}
+/*animações do modal do tutorial*/
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+/*gif animado*/
 .gifvideo{
   width: 15%;
   max-width: 100px;
 }
+/*footer do modal*/
 .modal-footer {
   background-color: var(--dark-blue);
 }
-#applause{
-  display:none;
-  position:absolute;
-  margin: auto;
-  width: 50%;
+
+/*controle de audio*/
+#music-control{
+  border: #000 solid 5px;
+  border-radius: 12px;
+  min-width: 145px;
+  min-height: 45px;
+  height: 6%;
+  width: 12%;
+  background-color: var(--beige-bg);
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-#emoji{
-  width: 60px;
-  height: 60px;
+.audiobtn{
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+}
+.audiobtn:hover{
+  cursor: pointer;
+}
+.audiobtn:active{
+  filter: invert(98%) sepia(2%) saturate(9%) hue-rotate(61deg) brightness(103%) contrast(103%);
+}
+#mute-audio{
+  background-image: url("../img/mute-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+#down-audio{
+  background-image: url("../img/down-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+#up-audio{
+  background-image: url("../img/up-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+#max-audio{
+  background-image: url("../img/max-vol.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
 }

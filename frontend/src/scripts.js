@@ -130,23 +130,28 @@ class gamedb{
 let gamedates = new gamedb;
 
 //inicia timer do jogo
-function updateTime()
-{
+function updateTime(){
+    //se o tempo estiver parado nada acontece
     if (stoped) return;
+    //atualiza o tempo em contagem regressiva
     timeSeg = timecred - Math.floor((+new Date() - timecr) / 1000);
-    showtimer.innerHTML = Math.floor(timeSeg/60) +" : "+ timeSeg%60;//timeSeg.toString() + " SEG";
+    showtimer.innerHTML = Math.floor(timeSeg/60) +" : "+ timeSeg%60;
+    //controla a cor (vere quando maior que 15s e vermelho quando melhor ou igual)
     if(timeSeg < 15){
         showtimer.style.color = 'red';
     }else{
         showtimer.style.color = 'var(--green-dark)';
     }
+    //Quando termina o tempo para a contagem regressiva e muda a emoção
     if (timeSeg==0) {
         stoped = true;
         emoji.src = emojis.crying;
     }
     return;
 }
+//comando de iniciar jogo
 function stargame(){
+    //quando não digitou o nome do jogador
     if (playername.value == ""){
         alert("DIGITE SEU NOME DE JOGADOR");
         return false;
@@ -157,17 +162,20 @@ function stargame(){
     //instancia o jogador e inicia o jogo
     sendstatus(playername.value);
     //Informaçoes iniciais do audio de fundo
-    document.getElementById('background-music').play()
+    document.getElementById('background-music').play();
     document.getElementById("background-music").volume = 0.5;
 }
 //quando é um novo jogador
 function playerinit(){
+    //inicia dados de usuario
     gamedates.setnameuser(playername.value);
     gamedates.setdescuser(playertag.value);
     gamedates.setTimeCred(60);
+    //mostra dados de usuario
     playershowname.innerHTML = gamedates.getnameuser();
     playershowtag.innerHTML = gamedates.getdescuser();
     showtimer.innerHTML = gamedates.getTimeCred();
+    //envia dados de usuario para o servidor
     sendregister();
 }
 //imprime o ranking de pontuações
@@ -175,55 +183,6 @@ function showScores(data){
     scoresvalues.forEach((item,index)=>{
         item.innerHTML = `<div>${(index+1)} - ${data[index].name}</div><div>${data[index].score}</div>`;
     })
-}
-//envia requicisão do ranking de pontuações
-function sendscores(){
-    const fullurl = url + 'scores';
-    console.log("request:" + fullurl);
-    fetch(fullurl).then(
-        function(response) {
-        if (response.status !== 200) {
-            console.log('Looks like there was a problem. Status Code: ' + response.status);
-            return;
-        }
-        response.json().then(function(data) {
-            console.log(data);
-            console.log('Records recebidos');
-            showScores(data);
-        });
-        }
-    ).catch(function(err) {
-        console.log('Fetch Error :-S', err);
-    });  
-}
-//envia requisição para salvar os dados no servidor
-function sendregister(){
-    const fullurl = url + 'register';
-    console.log(fullurl);
-    fetch(fullurl,{
-        method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify(gamedates.getUser())
-    }).then(
-        function(response) {
-            console.log(response);
-        if (response.status !== 200) {
-            console.log('Looks like there was a problem. Status Code: ' + response.status);
-            return;
-        }
-        response.json().then(function(data) {
-            console.log('dados recebidos agora');
-            console.log(data);
-            initlevel();
-            console.log('dados recebidos');
-        });
-        }
-    ).catch(function(err) {
-        console.log('Fetch Error :-S', err);
-    }); 
 }
 //inicia o nivel de jogo
 function initlevel(){
@@ -238,32 +197,36 @@ function initlevel(){
 }
 //quando o jogador acerta o valor vai para o proximo subnivel
 function nextlevel(){
-    emoji.src = emojis.sunglasses;
-    applause.style.display = 'block';
-    winLevel.play();
-    stoped = true;
+    emoji.src = emojis.sunglasses;//muda a emoção
+    applause.style.display = 'block';//mostra aplausos
+    winLevel.play();//toca sons de comemoração
+    stoped = true;//pausa o timer
+    //comemoração de 5 segundos antes de ir para o proximo nivel 
     let interval = setInterval(function(){
         gamedates.setTimeCred(timeSeg);
-        if (gamedates.getsublevel()<4){
-            gamedates.incasublevel(1);
-            gamedates.incscoreuser(10);
-            initlevel();
-        }else{
-            gamedates.setsublevel(0);
-            gamedates.incscoreuser(20);
-            gamedates.incleveluser(1);
-            sendregister();
+        if (gamedates.getsublevel()<4){//se não estiver no ultimo subnivel
+            gamedates.incasublevel(1);//aumenta um subnivel
+            gamedates.incscoreuser(10);//aumenta 10 pontos
+            initlevel();//inicia proximo subnivel
+        }else{//se estiver no ultimo subnivel
+            gamedates.setsublevel(0);//primeiro subnivel do proximo nivel
+            gamedates.incscoreuser(20);//aumenta 20 pontos
+            gamedates.incleveluser(1);//aumenta um nivel
+            sendregister();//envia dados para registro no servidor
         }
         stoped = false;
-        restepositions();
-        applause.style.display = 'none';
-        emoji.src = emojis.thinking;
+        restepositions();//restaura posições das peças
+        applause.style.display = 'none';//apaga animação de aplausos
+        emoji.src = emojis.thinking;//muda emoção
         clearTimeout(interval);
-    },5000);//comemoração de 5 segundos antes de ir para o proximo nivel 
+    },5000);
 }
-//envia requisição dos dados salvos do jogador
-function sendstatus(name){
-    const fullurl = url + 'status?name=' + name;
+//envia requicisão do ranking de pontuações
+function sendscores(){
+    //monta url da requicisão
+    const fullurl = url + 'scores';
+    console.log("request:" + fullurl);
+    //faz requicisão get
     fetch(fullurl).then(
         function(response) {
         if (response.status !== 200) {
@@ -272,18 +235,74 @@ function sendstatus(name){
         }
         response.json().then(function(data) {
             console.log(data);
-            if (data){
+            console.log('Records recebidos');
+            //imprime dados recebidos
+            showScores(data);
+        });
+        }
+    ).catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    });  
+}
+//envia requisição para salvar os dados no servidor
+function sendregister(){
+    //monta url da requicisão
+    const fullurl = url + 'register';
+    console.log(fullurl);
+    //faz requicisão post
+    fetch(fullurl,{
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(gamedates.getUser())//envia dados do usuario no corpo
+    }).then(
+        function(response) {
+            console.log(response);
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' + response.status);
+            return;
+        }
+        response.json().then(function(data) {
+            console.log('dados recebidos agora');
+            console.log(data);
+            //inicial nivel que o jogador estava
+            initlevel();
+            console.log('dados recebidos');
+        });
+        }
+    ).catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    }); 
+}
+//envia requisição dos dados salvos do jogador
+function sendstatus(name){
+    //monta url da requicisão
+    const fullurl = url + 'status?name=' + name;
+    //faz requicisão get
+    fetch(fullurl).then(
+        function(response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' + response.status);
+            return;
+        }
+        response.json().then(function(data) {
+            console.log(data);
+            if (data){//se os dados forem encontrados e resgatados
+                //seta informações resgatadas do usuario
                 gamedates.setnameuser(data.name);
+                //o lema antigo só sera usado se não for digitado lema novo
                 if (!gamedates.getdescuser()) gamedates.setdescuser(data.description);
                 gamedates.setleveluser(data.level);
                 gamedates.setscoreuser(data.score);
                 gamedates.setTimeCred(data.timecred);
                 playershowname.innerHTML = gamedates.getnameuser();
                 playershowtag.innerHTML = gamedates.getdescuser();
-            }else{
-                playerinit();
+            }else{//se não houve dados resgatados
+                playerinit();//inicia novo jogador
             }
-            initlevel();
+            initlevel();//inicia nivel
             console.log('dados recebidos');
         });
         }
@@ -395,9 +414,9 @@ $( "#alvo1" ).droppable({
         operationprint.innerHTML = gamedates.getOperOperation() + gamedates.getaccValues();
     }
 });
-
 //função de sorteio
 function sortOP(level, sublevel=0){
+    //variavel internas
     let op = {
         "operation" : "operação",
         "result" : 0
@@ -528,48 +547,55 @@ function sortOP(level, sublevel=0){
             }
             break;
     }
-    //retorna um objeto com a operação montada em um string e o resultado em um inteiro
+    //retorna um objeto com a operação montada em uma string e o resultado em um inteiro
     return op;
 }
 // Modal
-
 const modal = document.getElementById("modal");
 const btn = document.getElementById("bTutorial");
 const span = document.getElementsByClassName("close")[0];
 const video = document.getElementById("videoTutorial");
 const modalheader = document.getElementById('modal-header');
-
+//mostra modal os clicar no botão tutorial
 btn.onclick = function() {
   modal.style.display = "block";
 }
+//fecha ao clicar no simbolo fechar
 span.onclick = function() {
     closemodal();
 }
+//fecha o modal ao clicar fora
 window.onclick = function(event) {
   if (event.target == modal)
     closemodal();
 }
+//fecha o modal
 function closemodal(){
-    modal.style.display = "none";
-    video.pause();
-    video.currentTime = 0;
+    modal.style.display = "none";//torna invisivel
+    video.pause();//pausa video
+    video.currentTime = 0;//reseta video
 }
+//inclui evento click no cabeçalho do modal com a função fechar modal
 modalheader.addEventListener('click',closemodal);
 
 //controle de volume
+//mudo
 $('#mute-audio').on('click',function(){
     document.getElementById("background-music").volume = 0;
 });
+//abaixar volume
 $('#down-audio').on('click',function(){
-    if(document.getElementById("background-music").volume>0.1){
+    if(document.getElementById("background-music").volume>=0.1){
         document.getElementById("background-music").volume -= 0.1;
     }
 });
+//aumentar volume
 $('#up-audio').on('click',function(){
-    if(document.getElementById("background-music").volume<0.9){
+    if(document.getElementById("background-music").volume<=0.9){
         document.getElementById("background-music").volume += 0.1;
     }
 });
+//volume maximo
 $('#max-audio').on('click',function(){
     document.getElementById("background-music").volume = 1;
 });

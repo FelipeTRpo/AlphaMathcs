@@ -1,0 +1,370 @@
+:root {
+  --dark-turquoise: #172b3e;
+  --dark-blue: #02254b;
+  --medium-yellow: #9c8321;
+  --light-green-1: #4d9b4d;
+  --light-green-2: #499c49;
+  --medium-green: #449d44;
+  --dark-green: #3f9e3f;
+  --dark-green-2: #3a9f3a;
+
+  --shadow-text: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  --shadow-box: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+body,
+html {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-turquoise);
+}
+
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  width: 100%;
+  height: auto;
+  /*min-height: 70px;*/
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(
+    to bottom,
+    var(--light-green-1),
+    var(--light-green-2),
+    var(--medium-green),
+    var(--dark-green),
+    var(--dark-green-2)
+  );
+  text-shadow: var(--shadow-text);
+  box-shadow: var(--shadow-box);
+}
+
+.logo {
+  padding-top: 3px;
+}
+
+.logo > h1 {
+  position: relative;
+  top: 4px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 2em;
+  text-align: center;
+  color: var(--dark-turquoise);
+}
+#icon_cube {
+  width: 4%;
+  /*height: 60px;*/
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background: var(--dark-blue);
+  border-radius: 1px;
+}
+.footerinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+span {
+  font-family: "Bebas Neue", cursive;
+  color: var(--medium-yellow);
+}
+
+/*botoes tela inicial*/
+
+#bStart,#bTutorial{
+  background: #4d9b4d;
+  color: white;
+  border-style: outset;
+  border-color: #4d9b4d;
+  height: 15%;
+  width: 100%;
+  font: bold 15px arial, sans-serif;
+  text-shadow:none;
+}
+#bTutorial:hover, #bStart:hover{
+  border-color: white;
+}
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#icon_operator {
+  height: 25vh;
+  margin-top: 5%;
+}
+
+button {
+  margin-top: 10%;
+  color: var(--dark-turquoise);
+  padding: 3%;
+  border-radius: 10px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input{
+  margin-top: 10%;
+  border-radius: 10px;
+  padding: 3%;
+  background-color: #ddc;
+}
+#gameplay{
+  display: none;
+  /*display: flex;*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 10px;
+  height: 90vh;
+  width: 90vw;
+  background-color: var(--dark-turquoise);
+}
+h2, h3{
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+strong{
+  font-weight: bold;
+}
+#playershowtag{
+  font-style: italic;
+}
+#supermain{
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  width: 100%;
+  height: 90%;
+  /*border: 2px solid red;*/
+}
+#maingame{
+  display: flex;
+  justify-content: space-around;
+  position:relative;
+  width: 80%;
+  height: 100% ;
+  /*border: 2px solid blue;*/
+}
+#scores{
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20%;
+  height: 100% ;
+  border: 2px solid black;
+  padding: 10px;
+  background-color: var(--dark-green-2);
+}
+.moveable1{
+  position: absolute;
+  /*border: 2px solid black;*/
+  top:5%;
+  left: 15%;
+  height: 20px;
+  width: 20px;
+  background-image: url("../img/unidade.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+
+.moveable10{
+  position: absolute;
+  /*border: 2px solid black;*/
+  top:10%;
+  left: 15%;
+  /*top: 50px;
+  left: 200px;*/
+  height: 120px;
+  width: 25px;
+  background-image: url("../img/dezena.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+.moveable100{
+  position: absolute;
+  /*border: 2px solid black;*/
+  top:35%;
+  left: 15%;
+  /*top: 200px;
+  left: 50px;*/
+  height: 120px;
+  width: 160px;
+  background-image: url("../img/centena.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+.moveable1000{
+  position: absolute;
+  /*border: 2px solid black;*/
+  top:60%;
+  left: 15%;
+  /*top: 200px;
+  left: 200px;*/
+  height: 150px;
+  width: 180px;
+  background-image: url("../img/milhar.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+
+#alvo1{
+  position: absolute;
+  border: 1px solid black;
+  height: 90%;
+  width: 65%;
+  right: 1%;
+  top: 5%;
+  background-color: var(--dark-green-2);
+}
+.points{
+  display: flex;
+  justify-content: space-between;
+}
+.moveable1,.moveable10,.moveable100,.moveable1000{
+  max-width: 10vw;
+}
+.moveable1,.moveable10,.moveable100,.moveable1000:hover{
+  cursor: grab;
+}
+.moveable1:active,.moveable10:active,.moveable100:active,.moveable1000:active{
+  cursor: grabbing;
+}
+/* fontes e cores de fontes em alguns lugares da pagina */
+#operation{
+  margin: 1%;
+  font-family: "Bebas Neue", cursive;
+  color: var(--dark-turquoise);
+  font-size: 10vh;
+}
+
+#playershowname,#playershowtag,#playershowdate{
+  margin: 0;
+  font-family: "Bebas Neue", cursive;
+  color: var(--light-green-2);
+  font-size: 5vh;
+}
+
+#scores,.points{
+  font-family: "Bebas Neue", cursive;
+  color: var(--dark-turquoise);
+  font-size: 4vh;
+}
+#reset-btn{
+  position:absolute;
+  bottom: 5%;
+  left: 0%;
+  color: var(--dark-turquoise);
+  background-color: var(--light-green-2);
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  padding: 1%;
+}
+/*modal botao tutorial*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 4%;
+  left: auto;
+  top: 0;
+  overflow: auto; /* Enable scroll if needed */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #4a1;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: auto;
+  max-width: 800px;
+  max-height: 100vh;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+#videoTutorial{
+  width: 100vw;
+  max-width: 800px;
+  max-height: 600px;
+}
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+#h2Tutorial{
+  position: relative;
+  top: 4px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 3em;
+  text-align: center;
+  color: var(--dark-turquoise);
+}
+.close {
+  color: black;
+  float: right;
+  font-size: 3em;
+  font-weight: bold;
+}
+.close:hover,.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  background-color: #5cb85c;
+  color: white;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gifvideo{
+  width: 15%;
+  max-width: 100px;
+}
+.modal-footer {
+  background-color: var(--dark-blue);
+}
+#applause{
+  display:none;
+  position:absolute;
+  margin: auto;
+  width: 50%;
+}
+#emoji{
+  width: 60px;
+  height: 60px;
+}

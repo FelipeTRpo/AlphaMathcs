@@ -5,7 +5,8 @@ function validDate(data){
     if ((typeof data.name == 'string') &&
     (typeof data.description == 'string') &&
     (data.score != '') &&
-    (data.level != '')){
+    (data.level != '') &&
+    (data.timecred != '')){
         return true;
     }
     return false;
@@ -35,12 +36,16 @@ function includes(data,playes,scores){
     index = scores.findIndex(function(item){
         return item.name == data.name;
     });
+    //se não estiver no raking, inclui
     if (index<0){
         scores.push({"name": data.name, "score": data.score});
     }else{
+    //se ja estiver no ranking, atualiza o score
         scores[index].score = data.score;
     }
+    //reordena o renking em ordem decrescente de score
     scores.sort((a, b) => b.score - a.score);
+    //se tiver ultrapassado o numero maximo, exclui o ultimo (menor) membro do ranking
     if (scores.length>NUMBERRANKING){
         scores.pop();
     }
