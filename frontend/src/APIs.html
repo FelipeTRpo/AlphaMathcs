@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <body>
+        <style>
+            input{
+                width: 100%;
+                max-width: 300px;
+            }
+            textarea{
+                width: 100%;
+                max-width: 400px;
+                height: auto;
+                max-height: 900px;
+                min-height: 400px;
+            }
+        </style>
+    </body>
+    <body>
         <input id="inname" type="text" class="imputname" placeholder="Seu Nome"/><br/>
         <input id="indesc" type="text" class="imputdescription" placeholder="Sua frase de efeito"/><br/>
         <input id="inscore" type="number" class="imputscore" placeholder="pontos"/><br/>
         <input id="inlevel" type="number" class="imputlevel" placeholder="nivel"/><br/>
-        <input id="initime" type="number" class="imputlevel" placeholder="seu tempo acumulado"/><br/>
+        <input id="intime" type="number" class="imputtime" placeholder="seu tempo acumulado"/><br/>
         <button id="bregister">Register</button><br/><br/>
         <button id="bscores">Scores</button><br/><br/>
         <input id="statusname" type="text" class="imputname" placeholder="Seu Nome"/><br/>
@@ -47,7 +62,7 @@ function sendregister(){
             return;
         }
         response.json().then(function(data) {
-            recebers.innerHTML = data;
+            recebers.innerHTML = JSON.stringify(data);
             console.log(data);
             console.log('dados recebidos');
         });
@@ -67,7 +82,7 @@ function sendscores(){
             return;
         }
         response.json().then(function(data) {
-            recebers.innerHTML = data;
+            recebers.innerHTML = JSON.stringify(data);
             console.log(data);
             console.log('dados recebidos');
         });
@@ -87,7 +102,7 @@ function sendstatus(){
             return;
         }
         response.json().then(function(data) {
-            recebers.innerHTML = data;
+            recebers.innerHTML = JSON.stringify(data);
             console.log(data);
             console.log('dados recebidos');
         });
