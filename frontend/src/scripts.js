@@ -14,6 +14,7 @@ let operationprint = document.getElementById('operation');
 let showtimer = document.getElementById('showtimer');
 let applause = document.getElementById('applause');
 let emoji = document.getElementById('emoji');
+let defeat = document.getElementById('defeat');
 //sons
 const drop = new Audio("./assets/songs/drop.wav");
 const winLevel = new Audio("./assets/songs/winLevel.mp3");
@@ -143,9 +144,12 @@ function updateTime(){
         showtimer.style.color = 'var(--green-dark)';
     }
     //Quando termina o tempo para a contagem regressiva e muda a emoção
-    if (timeSeg==0) {
+    if (timeSeg<=0) {
         stoped = true;
         emoji.src = emojis.crying;
+        defeat.style.display = 'flex';
+        document.getElementById('defeat-music').play();
+        document.getElementById("background-music").volume = 0;
     }
     return;
 }
@@ -164,6 +168,8 @@ function stargame(){
     //Informaçoes iniciais do audio de fundo
     document.getElementById('background-music').play();
     document.getElementById("background-music").volume = 0.5;
+
+    
 }
 //quando é um novo jogador
 function playerinit(){
@@ -605,4 +611,5 @@ $('#btn-back-click').on('click',function(){
     gameplay.style.display='none';
     document.getElementById("background-music").volume = 0;
     stoped = true;
+    defeat.style.display = 'none';
 })
