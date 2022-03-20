@@ -599,3 +599,10 @@ $('#up-audio').on('click',function(){
 $('#max-audio').on('click',function(){
     document.getElementById("background-music").volume = 1;
 });
+//botao de voltar
+$('#btn-back-click').on('click',function(){
+    initPlay.style.display='flex';
+    gameplay.style.display='none';
+    document.getElementById("background-music").volume = 0;
+    stoped = true;
+})

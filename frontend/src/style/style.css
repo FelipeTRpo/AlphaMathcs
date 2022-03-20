@@ -85,7 +85,7 @@ footer {
   bottom: 0;
   width: 100%;
   height: auto;
-  background: var(--dark-blue);
+  background: #2f2264;
   border-radius: 1px;
   font-family: Modak, Grobold, Dokdo, "Bebas Neue", cursive;
 }
@@ -535,4 +535,35 @@ a{
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent;
+}
+#back-to-menu-btn{
+  border: #000 solid 5px;
+  border-radius: 12px;
+  min-width: 45px;
+  min-height: 45px;
+  height: 6%;
+  width: 2%;
+  background-color: var(--beige-bg);
+  position: absolute;
+  top: 10px;
+  left: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+#btn-back-click{
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  background-image: url("../img/back-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+}
+#btn-back-click:hover{
+  cursor: pointer;
+}
+#btn-back-click:active{
+  filter: invert(98%) sepia(2%) saturate(9%) hue-rotate(61deg) brightness(103%) contrast(103%);
 }
