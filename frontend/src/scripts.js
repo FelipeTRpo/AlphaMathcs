@@ -612,4 +612,5 @@ $('#btn-back-click').on('click',function(){
     document.getElementById("background-music").volume = 0;
     stoped = true;
     defeat.style.display = 'none';
+    gamedates = new gamedb;
 })
