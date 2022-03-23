@@ -49,6 +49,21 @@ class gamedb{
             "result" : 0
         }
     }
+    gamereset(){
+        this.accValues = 0;
+        this.sublevel = 0;
+        this.user = {
+            "name": "",
+            "description": "",
+            "score": 0,
+            "level": 0,
+            "timecred": 0
+        }
+        this.oper = {
+            "operation" : "operação",
+            "result" : 0
+        }
+    }
     setaccValues(value){
         this.accValues = value;
     }
@@ -605,12 +620,16 @@ $('#up-audio').on('click',function(){
 $('#max-audio').on('click',function(){
     document.getElementById("background-music").volume = 1;
 });
-//botao de voltar
+//botao de voltar - reseta todas variaveis
 $('#btn-back-click').on('click',function(){
     initPlay.style.display='flex';
     gameplay.style.display='none';
     document.getElementById("background-music").volume = 0;
-    stoped = true;
     defeat.style.display = 'none';
-    gamedates = new gamedb;
+    gamedates.gamereset();
+    timecred = 0;
+    timeSeg = 0;
+    timecr = 0;
+    stoped = true;
+    restepositions();
 })

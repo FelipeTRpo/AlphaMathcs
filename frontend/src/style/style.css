@@ -575,6 +575,7 @@ a{
   position:absolute;
   margin: auto;
   width: 50%;
+  max-width: 420px;
   background-color: var(--blue-bg);
   border-radius: 30px;
   border: 5px solid black;
@@ -587,7 +588,6 @@ a{
   align-self: center;
 }
 #defeat-img{
-
   text-align: center;
   align-self: center;
 }
