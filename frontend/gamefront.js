@@ -4,7 +4,7 @@ const express = require('express');
 //app servidor da pagina
 const app = express();
 //porta de comunicação da pagina
-const port = 80;
+const port = 8080;
 //configura para servir arquivos estáticos
 app.use(express.static('./src/'));
 //informa uma url para acessar o jogo e passa a escutar a porta
