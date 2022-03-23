@@ -414,7 +414,7 @@ a{
   padding-top: 4%;
   left: auto;
   top: 0;
-  overflow: auto; /* ativa rolagem quando necessario */
+  /* overflow: auto; ativa rolagem quando necessario */
 }
 .modal-content {
   position: relative;
