@@ -573,7 +573,7 @@ a{
   display: none;
   flex-direction: column;
   position:absolute;
-  margin: auto;
+  margin: 0 10%;
   width: 50%;
   max-width: 420px;
   background-color: var(--blue-bg);
