@@ -603,11 +603,19 @@ modalheader.addEventListener('click',closemodal);
 //mudo
 $('#mute-audio').on('click',function(){
     document.getElementById("background-music").volume = 0;
+    drop.volume = 0;
+    winLevel.volume = 0;
+    document.getElementById('defeat-music').volume=0;
 });
 //abaixar volume
 $('#down-audio').on('click',function(){
     if(document.getElementById("background-music").volume>=0.1){
         document.getElementById("background-music").volume -= 0.1;
+    }
+    if(drop.volume>=0.1) drop.volume -= 0.1;
+    if(winLevel.volume>=0.1) winLevel.volume -= 0.1;
+    if(document.getElementById('defeat-music').volume>=0.1){
+        document.getElementById('defeat-music').volume -= 0.1;
     }
 });
 //aumentar volume
@@ -615,10 +623,18 @@ $('#up-audio').on('click',function(){
     if(document.getElementById("background-music").volume<=0.9){
         document.getElementById("background-music").volume += 0.1;
     }
+    if(drop.volume<=0.9) drop.volume += 0.1;
+    if(winLevel.volume<=0.9) winLevel.volume += 0.1;
+    if(document.getElementById('defeat-music').volume<=0.9){
+        document.getElementById('defeat-music').volume += 0.1;
+    }
 });
 //volume maximo
 $('#max-audio').on('click',function(){
     document.getElementById("background-music").volume = 1;
+    drop.volume = 1;
+    winLevel.volume = 1;
+    document.getElementById('defeat-music').volume=1;
 });
 //botao de voltar - reseta todas variaveis
 $('#btn-back-click').on('click',function(){
